@@ -56,31 +56,23 @@ const Footer = () => {
               transition={{ duration: 0.6 }}
             >
               <motion.div
-                className={`w-12 h-12 rounded-2xl ${
-                  theme === 'dark' 
-                    ? 'bg-gradient-to-br from-purple-500 to-pink-500' 
-                    : 'bg-gradient-to-br from-purple-600 to-pink-600'
-                } flex items-center justify-center shadow-lg`}
+                className="relative"
                 animate={{ 
-                  rotate: [0, 5, -5, 0],
-                  scale: [1, 1.05, 1]
+                  rotate: [0, 2, -2, 0],
+                  scale: [1, 1.02, 1]
                 }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                <Brain className="w-7 h-7 text-white" />
+                <img
+                  src={theme === 'dark' 
+                    ? 'https://customer-assets.emergentagent.com/job_scene-capture/artifacts/krl4sg5i_horizontal_gradient%2Bwhite.png'
+                    : 'https://customer-assets.emergentagent.com/job_scene-capture/artifacts/1u82lu4a_horizontal_gradient%2Bblack.png'
+                  }
+                  alt="VERSATIL"
+                  className="h-8 w-auto object-contain"
+                  style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.1))' }}
+                />
               </motion.div>
-              <div>
-                <h3 className={`text-2xl font-bold ${
-                  theme === 'dark' ? 'text-white' : 'text-gray-900'
-                }`}>
-                  {versatilData.company.name}
-                </h3>
-                <p className={`text-sm ${
-                  theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
-                } font-medium`}>
-                  {versatilData.company.tagline}
-                </p>
-              </div>
             </motion.div>
             
             <motion.p
