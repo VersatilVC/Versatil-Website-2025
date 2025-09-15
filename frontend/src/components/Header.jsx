@@ -18,15 +18,18 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* VERSATIL Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            {/* VERSATIL Geometric Logo */}
-            <div className="w-8 h-8 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-purple-500 to-pink-500 transform rotate-45 rounded-sm transition-transform duration-300 group-hover:rotate-90" />
-              <div className="absolute top-1 left-1 w-2 h-2 bg-background rounded-xs" />
-              <div className="absolute bottom-1 right-1 w-2 h-2 bg-background rounded-xs" />
+            {/* Official VERSATIL Logo */}
+            <div className="relative">
+              <img
+                src={theme === 'dark' 
+                  ? 'https://customer-assets.emergentagent.com/job_scene-capture/artifacts/krl4sg5i_horizontal_gradient%2Bwhite.png'
+                  : 'https://customer-assets.emergentagent.com/job_scene-capture/artifacts/1u82lu4a_horizontal_gradient%2Bblack.png'
+                }
+                alt="VERSATIL"
+                className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.1))' }}
+              />
             </div>
-            <span className="text-foreground font-bold text-xl tracking-tight group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-pink-500 group-hover:bg-clip-text transition-all duration-300">
-              VERSATIL
-            </span>
           </Link>
 
           {/* Navigation */}
