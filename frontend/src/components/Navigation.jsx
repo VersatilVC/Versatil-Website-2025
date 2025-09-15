@@ -43,39 +43,23 @@ const Navigation = () => {
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              className={`w-12 h-12 rounded-2xl ${
-                theme === 'dark' 
-                  ? 'bg-gradient-to-br from-purple-500 to-pink-500' 
-                  : 'bg-gradient-to-br from-purple-600 to-pink-600'
-              } flex items-center justify-center shadow-lg`}
+              className="relative"
               animate={{ 
-                rotate: [0, 5, -5, 0],
-                scale: [1, 1.05, 1]
+                rotate: [0, 2, -2, 0],
+                scale: [1, 1.02, 1]
               }}
               transition={{ duration: 4, repeat: Infinity }}
             >
-              <Brain className="w-7 h-7 text-white" />
+              <img
+                src={theme === 'dark' 
+                  ? 'https://customer-assets.emergentagent.com/job_scene-capture/artifacts/krl4sg5i_horizontal_gradient%2Bwhite.png'
+                  : 'https://customer-assets.emergentagent.com/job_scene-capture/artifacts/1u82lu4a_horizontal_gradient%2Bblack.png'
+                }
+                alt="VERSATIL"
+                className="h-8 w-auto object-contain"
+                style={{ filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.1))' }}
+              />
             </motion.div>
-            <div>
-              <h1 className="text-2xl font-bold">
-                <span className={`${
-                  theme === 'dark' 
-                    ? 'bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent' 
-                    : 'text-gray-900'
-                }`}>
-                  {versatilData.company.name}
-                </span>
-              </h1>
-              <motion.p
-                className={`text-xs ${
-                  theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
-                } font-medium`}
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                {versatilData.company.tagline}
-              </motion.p>
-            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
