@@ -1,405 +1,460 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
+import { versatilData } from "../data/versatil-mock";
 import { 
-  Lightbulb, 
-  FileText, 
-  Sparkles, 
-  Database, 
   Brain,
-  Network,
-  Target,
-  BarChart3,
+  Database,
+  FileText,
+  Edit3,
+  ShieldCheck,
+  TrendingUp,
   CheckCircle,
   Clock,
-  Zap
+  Users,
+  Target,
+  Zap,
+  BarChart3
 } from "lucide-react";
 
 const VersatilContentEngine = () => {
   const { theme } = useTheme();
-  const [activeWorkflow, setActiveWorkflow] = useState('ideas');
-  const [processingStates, setProcessingStates] = useState({});
+  const [activeWorkflows, setActiveWorkflows] = useState([]);
+  const [completedTasks, setCompletedTasks] = useState([]);
+  const [engineMetrics, setEngineMetrics] = useState({
+    dnaProfilesCreated: 0,
+    briefsGenerated: 0,
+    contentPieces: 0,
+    brandConsistency: 0,
+    performanceOptimized: 0
+  });
 
-  // VERSATIL Workflow Stages
-  const workflowStages = [
-    {
-      id: 'dna-analysis',
-      title: 'Company DNA Analysis',
-      subtitle: 'RAG Processing',
-      icon: Database,
-      position: { x: 10, y: 20 },
-      color: 'purple',
-      description: 'Analyzing brand documents, values, and messaging'
-    },
-    {
-      id: 'ideas',
-      title: 'Generate Ideas',
-      subtitle: 'AI Ideation',
-      icon: Lightbulb,
-      position: { x: 10, y: 60 },
-      color: 'yellow',
-      description: 'Creating content ideas from company DNA'
-    },
-    {
-      id: 'briefs',
-      title: 'Content Briefs',
-      subtitle: 'Detailed Specs',
-      icon: FileText,
-      position: { x: 50, y: 40 },
-      color: 'blue',
-      description: 'Generating detailed content specifications'
-    },
-    {
-      id: 'content',
-      title: 'Content Items',
-      subtitle: 'Final Assets',
-      icon: Sparkles,
-      position: { x: 90, y: 30 },
-      color: 'pink',
-      description: 'Producing ready-to-publish content'
-    },
-    {
-      id: 'validation',
-      title: 'Brand Validation',
-      subtitle: 'Quality Check',
-      icon: CheckCircle,
-      position: { x: 90, y: 70 },
-      color: 'green',
-      description: 'Ensuring brand consistency and accuracy'
-    }
-  ];
+  // Content Pipeline Task Definitions
+  const contentPipeline = versatilData.contentPipeline;
 
-  // Content Types Showcase
-  const contentTypes = [
-    { 
-      title: 'Blog Posts', 
-      count: 12, 
-      status: 'generating',
-      category: 'content_engineering'
-    },
-    { 
-      title: 'Social Media', 
-      count: 24, 
-      status: 'completed',
-      category: 'social_media'
-    },
-    { 
-      title: 'Email Campaigns', 
-      count: 8, 
-      status: 'ready_to_generate',
-      category: 'email_marketing'
-    },
-    { 
-      title: 'Landing Pages', 
-      count: 4, 
-      status: 'generating',
-      category: 'web_content'
-    }
-  ];
-
-  // Simulate VERSATIL workflow
+  // Multi-task Workflow Orchestration
   useEffect(() => {
-    const runWorkflow = async () => {
-      // Reset states
-      setProcessingStates({});
+    const runContentWorkflow = async () => {
+      // Phase 1: Initialize high-priority DNA and intelligence tasks
+      const highPriorityTasks = contentPipeline.filter(task => task.priority === 'high');
+      setActiveWorkflows(highPriorityTasks.map(task => task.id));
       
-      // Stage 1: DNA Analysis
-      setActiveWorkflow('dna-analysis');
-      setProcessingStates({ 'dna-analysis': 'processing' });
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setProcessingStates({ 'dna-analysis': 'completed' });
+      // Simulate parallel processing
+      for (let i = 0; i < highPriorityTasks.length; i++) {
+        setTimeout(() => {
+          const task = highPriorityTasks[i];
+          simulateTaskProgress(task);
+        }, i * 500);
+      }
 
-      // Stage 2: Ideas Generation
-      setActiveWorkflow('ideas');
-      setProcessingStates(prev => ({ ...prev, 'ideas': 'processing' }));
-      await new Promise(resolve => setTimeout(resolve, 1800));
-      setProcessingStates(prev => ({ ...prev, 'ideas': 'completed' }));
-
-      // Stage 3: Content Briefs (parallel)
-      setActiveWorkflow('briefs');
-      setProcessingStates(prev => ({ ...prev, 'briefs': 'processing' }));
-      await new Promise(resolve => setTimeout(resolve, 2200));
-      setProcessingStates(prev => ({ ...prev, 'briefs': 'completed' }));
-
-      // Stage 4: Content Generation & Validation (parallel)
-      setActiveWorkflow('content');
-      setProcessingStates(prev => ({ 
-        ...prev, 
-        'content': 'processing',
-        'validation': 'processing'
-      }));
-      await new Promise(resolve => setTimeout(resolve, 2500));
-      setProcessingStates(prev => ({ 
-        ...prev, 
-        'content': 'completed',
-        'validation': 'completed'
-      }));
-
-      // Hold completed state
       await new Promise(resolve => setTimeout(resolve, 3000));
+
+      // Phase 2: Add medium priority tasks
+      const mediumPriorityTasks = contentPipeline.filter(task => task.priority === 'medium');
+      setActiveWorkflows(prev => [...prev, ...mediumPriorityTasks.map(task => task.id)]);
+      
+      for (let i = 0; i < mediumPriorityTasks.length; i++) {
+        setTimeout(() => {
+          const task = mediumPriorityTasks[i];
+          simulateTaskProgress(task);
+        }, i * 800);
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 6000));
+
+      // Reset cycle
+      setTimeout(() => {
+        setActiveWorkflows([]);
+        setCompletedTasks([]);
+        setEngineMetrics({
+          dnaProfilesCreated: 0,
+          briefsGenerated: 0,
+          contentPieces: 0,
+          brandConsistency: 0,
+          performanceOptimized: 0
+        });
+      }, 2000);
     };
 
-    const interval = setInterval(runWorkflow, 12000);
-    runWorkflow(); // Run immediately
+    const simulateTaskProgress = async (task) => {
+      const duration = task.duration * 1000;
+      const steps = task.processes.length;
+      const stepDuration = duration / steps;
+
+      for (let i = 0; i < steps; i++) {
+        await new Promise(resolve => setTimeout(resolve, stepDuration));
+      }
+
+      // Mark as completed
+      setCompletedTasks(prev => [...prev, task.id]);
+      setActiveWorkflows(prev => prev.filter(id => id !== task.id));
+      
+      // Update metrics based on task type
+      setEngineMetrics(prev => ({
+        dnaProfilesCreated: prev.dnaProfilesCreated + (task.id.includes('dna') ? 1 : 0),
+        briefsGenerated: prev.briefsGenerated + (task.id.includes('brief') ? 2 : 0),
+        contentPieces: prev.contentPieces + (task.id.includes('content') ? 3 : 0),
+        brandConsistency: prev.brandConsistency + (task.id.includes('quality') ? 1 : 0),
+        performanceOptimized: prev.performanceOptimized + (task.id.includes('optimization') ? 1 : 0)
+      }));
+    };
+
+    const interval = setInterval(runContentWorkflow, 18000);
+    runContentWorkflow(); // Run immediately
     
     return () => clearInterval(interval);
   }, []);
 
-  const getStageColors = (color, status = 'idle') => {
-    const colorMap = {
+  const getTaskColor = (color, isActive = false, isCompleted = false) => {
+    const colors = {
       purple: {
-        idle: 'from-purple-500/20 to-purple-600/20 border-purple-500/40',
-        processing: 'from-purple-500/40 to-purple-600/40 border-purple-400 shadow-purple-400/50',
-        completed: 'from-green-500/40 to-green-600/40 border-green-400 shadow-green-400/50'
-      },
-      yellow: {
-        idle: 'from-yellow-500/20 to-yellow-600/20 border-yellow-500/40',
-        processing: 'from-yellow-500/40 to-yellow-600/40 border-yellow-400 shadow-yellow-400/50',
-        completed: 'from-green-500/40 to-green-600/40 border-green-400 shadow-green-400/50'
+        bg: isCompleted ? 'from-green-500/20 to-green-600/20' : (isActive ? 'from-purple-500/20 to-purple-600/20' : 'from-gray-800/30 to-gray-900/30'),
+        border: isCompleted ? 'border-green-500/60' : (isActive ? 'border-purple-500/60' : 'border-gray-700/30'),
+        icon: isCompleted ? 'bg-green-500' : (isActive ? 'bg-purple-500' : 'bg-gray-600'),
+        glow: isCompleted ? 'shadow-green-500/30' : 'shadow-purple-500/30'
       },
       blue: {
-        idle: 'from-blue-500/20 to-blue-600/20 border-blue-500/40',
-        processing: 'from-blue-500/40 to-blue-600/40 border-blue-400 shadow-blue-400/50',
-        completed: 'from-green-500/40 to-green-600/40 border-green-400 shadow-green-400/50'
-      },
-      pink: {
-        idle: 'from-pink-500/20 to-pink-600/20 border-pink-500/40',
-        processing: 'from-pink-500/40 to-pink-600/40 border-pink-400 shadow-pink-400/50',
-        completed: 'from-green-500/40 to-green-600/40 border-green-400 shadow-green-400/50'
+        bg: isCompleted ? 'from-green-500/20 to-green-600/20' : (isActive ? 'from-blue-500/20 to-blue-600/20' : 'from-gray-800/30 to-gray-900/30'),
+        border: isCompleted ? 'border-green-500/60' : (isActive ? 'border-blue-500/60' : 'border-gray-700/30'),
+        icon: isCompleted ? 'bg-green-500' : (isActive ? 'bg-blue-500' : 'bg-gray-600'),
+        glow: isCompleted ? 'shadow-green-500/30' : 'shadow-blue-500/30'
       },
       green: {
-        idle: 'from-green-500/20 to-green-600/20 border-green-500/40',
-        processing: 'from-green-500/40 to-green-600/40 border-green-400 shadow-green-400/50',
-        completed: 'from-green-500/40 to-green-600/40 border-green-400 shadow-green-400/50'
+        bg: isCompleted ? 'from-green-500/20 to-green-600/20' : (isActive ? 'from-green-500/20 to-green-600/20' : 'from-gray-800/30 to-gray-900/30'),
+        border: isCompleted ? 'border-green-500/60' : (isActive ? 'border-green-500/60' : 'border-gray-700/30'),
+        icon: isCompleted ? 'bg-green-500' : (isActive ? 'bg-green-500' : 'bg-gray-600'),
+        glow: 'shadow-green-500/30'
+      },
+      orange: {
+        bg: isCompleted ? 'from-green-500/20 to-green-600/20' : (isActive ? 'from-orange-500/20 to-orange-600/20' : 'from-gray-800/30 to-gray-900/30'),
+        border: isCompleted ? 'border-green-500/60' : (isActive ? 'border-orange-500/60' : 'border-gray-700/30'),
+        icon: isCompleted ? 'bg-green-500' : (isActive ? 'bg-orange-500' : 'bg-gray-600'),
+        glow: isCompleted ? 'shadow-green-500/30' : 'shadow-orange-500/30'
+      },
+      indigo: {
+        bg: isCompleted ? 'from-green-500/20 to-green-600/20' : (isActive ? 'from-indigo-500/20 to-indigo-600/20' : 'from-gray-800/30 to-gray-900/30'),
+        border: isCompleted ? 'border-green-500/60' : (isActive ? 'border-indigo-500/60' : 'border-gray-700/30'),
+        icon: isCompleted ? 'bg-green-500' : (isActive ? 'bg-indigo-500' : 'bg-gray-600'),
+        glow: isCompleted ? 'shadow-green-500/30' : 'shadow-indigo-500/30'
+      },
+      pink: {
+        bg: isCompleted ? 'from-green-500/20 to-green-600/20' : (isActive ? 'from-pink-500/20 to-pink-600/20' : 'from-gray-800/30 to-gray-900/30'),
+        border: isCompleted ? 'border-green-500/60' : (isActive ? 'border-pink-500/60' : 'border-gray-700/30'),
+        icon: isCompleted ? 'bg-green-500' : (isActive ? 'bg-pink-500' : 'bg-gray-600'),
+        glow: isCompleted ? 'shadow-green-500/30' : 'shadow-pink-500/30'
       }
     };
-    return colorMap[color]?.[status] || colorMap.purple.idle;
+    return colors[color] || colors.purple;
   };
 
-  const getStatusColor = (status) => {
-    const statusMap = {
-      'completed': 'text-green-400 bg-green-500/10',
-      'generating': 'text-blue-400 bg-blue-500/10',
-      'ready_to_generate': 'text-yellow-400 bg-yellow-500/10'
+  const getPriorityColor = (priority) => {
+    const colors = {
+      high: 'text-red-400 bg-red-500/10 border-red-500/30',
+      medium: 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30',
+      low: 'text-green-400 bg-green-500/10 border-green-500/30'
     };
-    return statusMap[status] || 'text-gray-400 bg-gray-500/10';
+    return colors[priority];
+  };
+
+  const iconMap = {
+    'brain': Brain,
+    'database': Database,
+    'file-text': FileText,
+    'edit-3': Edit3,
+    'shield-check': ShieldCheck,
+    'trending-up': TrendingUp
   };
 
   return (
-    <div className="relative w-full h-[500px]">
-      {/* Background Company DNA Pattern */}
-      <motion.div
-        className="absolute inset-0 opacity-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
-        transition={{ duration: 2 }}
-      >
-        <svg className="w-full h-full" viewBox="0 0 100 100">
-          <defs>
-            <pattern id="versatilPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="2" fill={theme === 'dark' ? '#A855F7' : '#7C3AED'} opacity="0.3" />
-              <path d="M 5 5 L 15 15 M 15 5 L 5 15" stroke={theme === 'dark' ? '#EC4899' : '#BE185D'} strokeWidth="0.5" opacity="0.2" />
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill="url(#versatilPattern)" />
-        </svg>
-      </motion.div>
+    <section className="py-20 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.p 
+            className={`text-sm font-medium tracking-widest uppercase mb-6 ${
+              theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
+            }`}
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            VERSATIL CONTENT ENGINE
+          </motion.p>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            Company DNA to{" "}
+            <span className={`${
+              theme === 'dark' 
+                ? 'bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent' 
+                : 'bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'
+            }`}>
+              Content Pipeline
+            </span>
+          </h2>
+          <p className={`text-xl leading-relaxed max-w-3xl mx-auto ${
+            theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+          }`}>
+            Watch VERSATIL's AI agents transform your company DNA into high-converting content through RAG and Graph technology.
+          </p>
+        </motion.div>
 
-      {/* Workflow Stages */}
-      <div className="relative z-10">
-        {workflowStages.map((stage, index) => {
-          const IconComponent = stage.icon;
-          const status = processingStates[stage.id] || 'idle';
-          const isActive = activeWorkflow === stage.id;
-          const colors = getStageColors(stage.color, status);
-          
-          return (
-            <motion.div
-              key={stage.id}
-              className="absolute cursor-pointer group"
-              style={{
-                left: `${stage.position.x}%`,
-                top: `${stage.position.y}%`,
-                transform: 'translate(-50%, -50%)',
-              }}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ 
-                delay: index * 0.2,
-                type: "spring",
-                stiffness: 300,
-                damping: 20
-              }}
-              whileHover={{ scale: 1.1, zIndex: 30 }}
-            >
-              {/* Stage Node */}
+        {/* Content Pipeline Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {contentPipeline.map((task, index) => {
+            const IconComponent = iconMap[task.icon] || Brain;
+            const isActive = activeWorkflows.includes(task.id);
+            const isCompleted = completedTasks.includes(task.id);
+            const colors = getTaskColor(task.color, isActive, isCompleted);
+            
+            return (
               <motion.div
-                className={`relative w-20 h-20 rounded-2xl border-2 backdrop-blur-sm flex flex-col items-center justify-center p-2 transition-all duration-500 bg-gradient-to-br ${colors}`}
-                animate={status === 'processing' ? {
-                  boxShadow: [
-                    '0 0 20px rgba(168, 85, 247, 0.3)',
-                    '0 0 40px rgba(236, 72, 153, 0.5)',
-                    '0 0 20px rgba(168, 85, 247, 0.3)'
-                  ]
-                } : {}}
-                transition={{ duration: 2, repeat: Infinity }}
+                key={task.id}
+                className={`relative p-6 rounded-2xl border-2 backdrop-blur-sm transition-all duration-700 ${
+                  colors.bg
+                } ${colors.border} ${(isActive || isCompleted) ? `shadow-2xl ${colors.glow}` : ''}`}
+                initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ 
+                  delay: index * 0.1, 
+                  duration: 0.6,
+                  type: "spring",
+                  stiffness: 100 
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -5,
+                }}
               >
-                <IconComponent className={`w-6 h-6 mb-1 ${
-                  status === 'processing' ? 'text-white animate-pulse' :
-                  status === 'completed' ? 'text-green-400' :
-                  'text-gray-400'
-                }`} />
-                <div className="text-xs font-bold text-center text-white leading-tight">
-                  {stage.title.split(' ').map((word, i) => (
-                    <div key={i}>{word}</div>
+                {/* Priority Badge */}
+                <div className={`absolute -top-2 -right-2 px-2 py-1 rounded-full text-xs font-medium border ${
+                  getPriorityColor(task.priority)
+                }`}>
+                  {task.priority.toUpperCase()}
+                </div>
+
+                {/* Task Icon */}
+                <motion.div
+                  className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 ${colors.icon} shadow-lg`}
+                  animate={isActive ? {
+                    scale: [1, 1.1, 1],
+                    rotate: [0, 5, -5, 0]
+                  } : isCompleted ? {
+                    scale: 1.1
+                  } : {}}
+                  transition={{ duration: 2, repeat: isActive ? Infinity : 0 }}
+                >
+                  {isCompleted ? (
+                    <CheckCircle className="w-6 h-6 text-white" />
+                  ) : (
+                    <IconComponent className="w-6 h-6 text-white" />
+                  )}
+                </motion.div>
+
+                {/* Task Info */}
+                <h3 className="text-lg font-bold mb-2">{task.title}</h3>
+                <p className={`text-sm mb-3 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Agent: {task.agent}
+                </p>
+
+                {/* Process Steps */}
+                <div className="space-y-2 mb-4">
+                  {task.processes.map((process, processIndex) => (
+                    <motion.div
+                      key={processIndex}
+                      className={`flex items-center space-x-2 text-xs p-2 rounded ${
+                        isActive 
+                          ? `bg-${task.color}-500/20 text-${task.color}-400` 
+                          : isCompleted
+                          ? 'bg-green-500/20 text-green-400'
+                          : `${theme === 'dark' ? 'text-gray-500' : 'text-gray-400'}`
+                      }`}
+                      initial={{ opacity: 0.5 }}
+                      animate={{ 
+                        opacity: isActive || isCompleted ? 1 : 0.5,
+                        x: isActive || isCompleted ? 5 : 0
+                      }}
+                      transition={{ duration: 0.3, delay: processIndex * 0.1 }}
+                    >
+                      <motion.div
+                        className={`w-2 h-2 rounded-full ${
+                          isCompleted ? 'bg-green-500' : (isActive ? `bg-${task.color}-500` : 'bg-gray-500')
+                        }`}
+                        animate={isActive ? {
+                          scale: [1, 1.3, 1],
+                          opacity: [0.7, 1, 0.7]
+                        } : {}}
+                        transition={{ duration: 1, repeat: Infinity, delay: processIndex * 0.2 }}
+                      />
+                      <span>{process}</span>
+                    </motion.div>
                   ))}
                 </div>
 
-                {/* Processing Indicator */}
-                {status === 'processing' && (
+                {/* Task Outputs */}
+                <div className="mb-4">
+                  <h4 className={`text-xs font-semibold uppercase tracking-wider mb-2 ${
+                    theme === 'dark' ? 'text-gray-500' : 'text-gray-400'
+                  }`}>
+                    Outputs
+                  </h4>
+                  <div className="flex flex-wrap gap-1">
+                    {task.outputs.map((output, outputIndex) => (
+                      <span
+                        key={outputIndex}
+                        className={`px-2 py-1 text-xs rounded ${
+                          isCompleted
+                            ? 'bg-green-500/20 text-green-400'
+                            : isActive
+                            ? `bg-${task.color}-500/20 text-${task.color}-400`
+                            : `${theme === 'dark' ? 'bg-gray-800 text-gray-500' : 'bg-gray-100 text-gray-500'}`
+                        }`}
+                      >
+                        {output}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Task Duration */}
+                <div className="flex items-center justify-between text-xs">
+                  <span className={`flex items-center space-x-1 ${
+                    theme === 'dark' ? 'text-gray-500' : 'text-gray-400'
+                  }`}>
+                    <Clock className="w-3 h-3" />
+                    <span>{task.duration}s</span>
+                  </span>
+                  
+                  {/* Status Indicator */}
                   <motion.div
-                    className="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 rounded-full"
+                    className={`px-2 py-1 rounded text-xs font-medium ${
+                      isCompleted ? 'bg-green-500/20 text-green-400' :
+                      isActive ? 'bg-blue-500/20 text-blue-400' :
+                      'bg-gray-500/20 text-gray-500'
+                    }`}
+                    animate={isActive ? { scale: [1, 1.05, 1] } : {}}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  >
+                    {isCompleted ? 'Complete' : isActive ? 'Processing' : 'Queued'}
+                  </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Real-Time VERSATIL Metrics */}
+        <motion.div
+          className={`p-8 rounded-2xl ${
+            theme === 'dark' 
+              ? 'bg-gray-900/50 border border-gray-800' 
+              : 'bg-gray-50 border border-gray-200'
+          }`}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        >
+          <h3 className="text-2xl font-bold text-center mb-8">
+            <span className={`${
+              theme === 'dark' 
+                ? 'bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent' 
+                : 'bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'
+            }`}>
+              Live VERSATIL Performance
+            </span>
+          </h3>
+          
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            {[
+              { label: 'DNA Profiles', value: engineMetrics.dnaProfilesCreated, icon: Brain, color: 'purple' },
+              { label: 'Briefs Generated', value: engineMetrics.briefsGenerated, icon: FileText, color: 'blue' },
+              { label: 'Content Pieces', value: engineMetrics.contentPieces, icon: Edit3, color: 'green' },
+              { label: 'Brand Consistency', value: engineMetrics.brandConsistency, icon: ShieldCheck, color: 'orange' },
+              { label: 'Optimizations', value: engineMetrics.performanceOptimized, icon: TrendingUp, color: 'red' }
+            ].map((metric, index) => {
+              const IconComponent = metric.icon;
+              return (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, type: "spring" }}
+                >
+                  <motion.div 
+                    className="flex items-center justify-center mb-3"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <div className={`p-3 rounded-full bg-${metric.color}-500/20 border border-${metric.color}-500/30`}>
+                      <IconComponent className={`w-6 h-6 text-${metric.color}-500`} />
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div 
+                    className={`text-3xl font-bold text-${metric.color}-500 mb-2`}
                     animate={{ 
-                      scale: [1, 1.3, 1],
-                      opacity: [0.7, 1, 0.7] 
+                      scale: metric.value > 0 ? [1, 1.05, 1] : 1
                     }}
                     transition={{ duration: 1, repeat: Infinity }}
-                  />
-                )}
-
-                {status === 'completed' && (
-                  <motion.div
-                    className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 500 }}
-                  />
-                )}
-              </motion.div>
-
-              {/* Tooltip */}
-              <motion.div
-                className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 ${
-                  theme === 'dark' ? 'bg-gray-900/90' : 'bg-white/90'
-                } backdrop-blur-sm border border-gray-600 rounded-lg p-2 min-w-max opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 z-40`}
-                initial={{ y: 10 }}
-                whileInView={{ y: 0 }}
-              >
-                <div className="text-xs font-semibold">{stage.title}</div>
-                <div className="text-xs text-gray-500">{stage.description}</div>
-              </motion.div>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Data Flow Connections */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-5">
-        <defs>
-          <linearGradient id="versatilFlow" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="transparent" />
-            <stop offset="30%" stopColor="#A855F7" stopOpacity="0.8" />
-            <stop offset="70%" stopColor="#EC4899" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="transparent" />
-            {(processingStates['dna-analysis'] || processingStates['ideas'] || processingStates['briefs']) && (
-              <animateTransform
-                attributeName="gradientTransform"
-                type="translate"
-                values="-100 0;100 0;-100 0"
-                dur="2s"
-                repeatCount="indefinite"
-              />
-            )}
-          </linearGradient>
-        </defs>
-        
-        {/* Connection paths */}
-        {[
-          { from: { x: 10, y: 20 }, to: { x: 10, y: 60 } },
-          { from: { x: 10, y: 60 }, to: { x: 50, y: 40 } },
-          { from: { x: 50, y: 40 }, to: { x: 90, y: 30 } },
-          { from: { x: 90, y: 30 }, to: { x: 90, y: 70 } }
-        ].map((path, index) => (
-          <motion.path
-            key={index}
-            d={`M ${path.from.x} ${path.from.y} L ${path.to.x} ${path.to.y}`}
-            stroke="url(#versatilFlow)"
-            strokeWidth="2"
-            fill="none"
-            initial={{ pathLength: 0, opacity: 0.3 }}
-            animate={{ 
-              pathLength: Object.keys(processingStates).length > 0 ? 1 : 0.5,
-              opacity: Object.keys(processingStates).length > 0 ? 1 : 0.3
-            }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-          />
-        ))}
-      </svg>
-
-      {/* Content Types Dashboard */}
-      <motion.div
-        className={`absolute bottom-4 left-4 right-4 ${
-          theme === 'dark' ? 'bg-gray-900/80' : 'bg-white/80'
-        } backdrop-blur-sm border border-gray-600/30 rounded-lg p-4`}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
-      >
-        <div className="flex items-center justify-between mb-3">
-          <h4 className="text-sm font-semibold">Content Pipeline</h4>
-          <div className="flex items-center space-x-2">
-            <motion.div
-              className="w-2 h-2 bg-green-500 rounded-full"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <span className="text-xs text-gray-500">Live Processing</span>
+                  >
+                    {metric.value}
+                  </motion.div>
+                  
+                  <div className={`text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {metric.label}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
-        </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          {contentTypes.map((type, index) => (
-            <motion.div
-              key={index}
-              className={`p-2 rounded text-xs ${
-                theme === 'dark' ? 'bg-gray-800/50' : 'bg-gray-100/50'
-              }`}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2 + index * 0.1 }}
-            >
-              <div className="flex items-center justify-between mb-1">
-                <span className="font-medium">{type.title}</span>
-                <span className={`px-1.5 py-0.5 rounded-full text-xs ${getStatusColor(type.status)}`}>
-                  {type.count}
+          {/* Workflow Status */}
+          <motion.div
+            className={`mt-8 p-4 rounded-xl ${
+              theme === 'dark' ? 'bg-gray-800/50' : 'bg-white/50'
+            } border border-gray-600/20`}
+            animate={{ opacity: [0.8, 1, 0.8] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <motion.div
+                  className="flex space-x-1"
+                  animate={{ x: [0, 10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  {[...Array(3)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"
+                      style={{ animationDelay: `${i * 0.2}s` }}
+                    />
+                  ))}
+                </motion.div>
+                <span className="font-medium">VERSATIL DNA Pipeline Active</span>
+              </div>
+              
+              <div className="flex items-center space-x-4 text-sm">
+                <span className="flex items-center space-x-1">
+                  <Users className="w-4 h-4" />
+                  <span>{activeWorkflows.length} Active</span>
+                </span>
+                <span className="flex items-center space-x-1">
+                  <CheckCircle className="w-4 h-4 text-green-500" />
+                  <span>{completedTasks.length} Completed</span>
                 </span>
               </div>
-              <div className="text-xs text-gray-500 capitalize">
-                {type.status.replace('_', ' ')}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* RAG Processing Indicator */}
-      <motion.div
-        className={`absolute top-4 right-4 ${
-          theme === 'dark' ? 'bg-purple-900/30' : 'bg-purple-100/80'
-        } border border-purple-500/30 rounded-lg p-3`}
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <div className="flex items-center space-x-2">
-          <Brain className="w-4 h-4 text-purple-500" />
-          <div>
-            <div className="text-xs font-semibold text-purple-600">RAG Engine</div>
-            <div className="text-xs text-gray-500">Zero Hallucinations</div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

@@ -1,382 +1,464 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Button } from "./ui/button";
-import VersatilContentEngine from "./VersatilContentEngine";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
-import { StaggerContainer, StaggerItem } from "./MotionWrapper";
-import { Brain, Database, Zap, Target, BarChart3 } from "lucide-react";
+import { versatilData } from "../data/versatil-mock";
+import {
+  Brain,
+  Database,
+  Network,
+  Edit3,
+  TrendingUp,
+  Zap,
+  ShieldCheck,
+  ArrowRight,
+  Sparkles,
+  Target,
+  BarChart3
+} from "lucide-react";
 
 const VersatilHero = () => {
   const { theme } = useTheme();
-  
+  const [currentShowcase, setCurrentShowcase] = useState(0);
+  const [dnaParticles, setDnaParticles] = useState([]);
+
+  // Generate DNA particles animation
+  useEffect(() => {
+    const particles = Array.from({ length: 20 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 2,
+      duration: Math.random() * 3 + 2,
+      delay: Math.random() * 2,
+    }));
+    setDnaParticles(particles);
+  }, []);
+
+  // Rotate technology showcase
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentShowcase((prev) => 
+        (prev + 1) % versatilData.technologyShowcase.length
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const technologyIcons = {
+    "Neural Analysis": Brain,
+    "Retrieval AI": Database,
+    "Relationship Modeling": Network,
+    "Brand-Aligned AI": Edit3,
+    "Optimization Engine": TrendingUp,
+  };
+
   return (
-    <section className="min-h-screen pt-20 flex items-center relative overflow-hidden">
-      {/* Enhanced Background Effects */}
-      <motion.div 
-        className="absolute inset-0 overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-      >
-        {/* VERSATIL Brand Gradient Overlays */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated DNA Background */}
+      <div className="absolute inset-0">
+        {/* DNA Helix Pattern */}
         <motion.div 
-          className={`absolute inset-0 ${
-            theme === 'dark' 
-              ? 'bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent' 
-              : 'bg-gradient-to-br from-purple-100/40 via-pink-100/20 to-transparent'
-          }`}
-          animate={{
-            opacity: [0.8, 1, 0.8],
+          className="absolute inset-0 opacity-10"
+          animate={{ 
+            rotate: [0, 360],
+            scale: [1, 1.1, 1] 
           }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
+          transition={{ 
+            duration: 20, 
+            repeat: Infinity, 
+            ease: "linear" 
           }}
-        />
-        
-        {/* Company DNA Visualization Pattern */}
-        <motion.div 
-          className="absolute inset-0 opacity-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.2 }}
-          transition={{ duration: 3, delay: 0.5 }}
         >
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <pattern id="versatilDNA" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
-                <motion.path 
-                  d="M 6 0 L 6 12 M 0 6 L 12 6" 
-                  stroke={theme === 'dark' ? '#A855F7' : '#7C3AED'} 
-                  strokeWidth="0.2" 
-                  opacity="0.4"
-                  animate={{ opacity: [0.2, 0.6, 0.2] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                />
-                <motion.circle 
-                  cx="6" 
-                  cy="6" 
-                  r="1.2" 
-                  fill={theme === 'dark' ? '#EC4899' : '#BE185D'} 
-                  opacity="0.3"
-                  animate={{ r: [0.8, 1.6, 0.8] }}
-                  transition={{ duration: 6, repeat: Infinity }}
-                />
-              </pattern>
-            </defs>
-            <rect width="100" height="100" fill="url(#versatilDNA)" />
+          <svg
+            viewBox="0 0 200 400"
+            className="w-full h-full"
+            style={{ 
+              background: `${theme === 'dark' 
+                ? 'radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.1) 0%, transparent 70%)'
+                : 'radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.05) 0%, transparent 70%)'
+              }` 
+            }}
+          >
+            {/* DNA Double Helix */}
+            <motion.path
+              d="M50,0 Q100,50 50,100 Q0,150 50,200 Q100,250 50,300 Q0,350 50,400"
+              stroke={theme === 'dark' ? '#9333EA' : '#7C3AED'}
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
+            <motion.path
+              d="M150,0 Q100,50 150,100 Q200,150 150,200 Q100,250 150,300 Q200,350 150,400"
+              stroke={theme === 'dark' ? '#EC4899' : '#DB2777'}
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
+            />
           </svg>
         </motion.div>
-        
-        {/* RAG Data Particles */}
-        <div className="absolute inset-0">
-          {[...Array(25)].map((_, i) => (
+
+        {/* Floating DNA Particles */}
+        {dnaParticles.map((particle) => (
+          <motion.div
+            key={particle.id}
+            className={`absolute w-${particle.size} h-${particle.size} rounded-full ${
+              theme === 'dark' 
+                ? 'bg-gradient-to-r from-purple-400 to-pink-400' 
+                : 'bg-gradient-to-r from-purple-500 to-pink-500'
+            }`}
+            style={{
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+            }}
+            animate={{
+              y: [-20, 20, -20],
+              x: [-10, 10, -10],
+              opacity: [0.3, 0.8, 0.3],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: particle.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Column - Text Content */}
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            {/* Subtitle */}
             <motion.div
-              key={`dna-particle-${i}`}
-              className={`absolute w-1 h-1 rounded-full ${
-                theme === 'dark' ? 'bg-purple-400/40' : 'bg-purple-600/40'
-              }`}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [-20, 20, -20],
-                x: [-10, 10, -10],
-                opacity: [0.3, 1, 0.3],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 4 + Math.random() * 3,
-                repeat: Infinity,
-                repeatType: "reverse",
-                delay: Math.random() * 2,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
-        
-        {/* Flowing Gradients */}
-        <motion.div 
-          className={`absolute top-1/4 left-0 w-96 h-96 rounded-full blur-3xl ${
-            theme === 'dark' 
-              ? 'bg-gradient-radial from-purple-500/8 to-transparent' 
-              : 'bg-gradient-radial from-purple-300/15 to-transparent'
-          }`}
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.5, 0.8, 0.5],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        <motion.div 
-          className={`absolute bottom-1/4 right-0 w-96 h-96 rounded-full blur-3xl ${
-            theme === 'dark'
-              ? 'bg-gradient-radial from-pink-500/8 to-transparent'
-              : 'bg-gradient-radial from-pink-300/15 to-transparent'
-          }`}
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.4, 0.7, 0.4],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 2,
-          }}
-        />
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-20">
-        {/* Left Content */}
-        <StaggerContainer delayChildren={0.2} staggerChildren={0.15}>
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <StaggerItem>
-                <motion.p 
-                  className={`tracking-widest text-sm font-medium ${
-                    theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
-                  }`}
-                  whileHover={{ letterSpacing: '0.2em' }}
-                  transition={{ duration: 0.3 }}
-                >
-                  COMPANY DNA-POWERED CONTENT
-                </motion.p>
-              </StaggerItem>
-              
-              <StaggerItem>
-                <motion.h1 
-                  className={`text-5xl lg:text-7xl font-bold leading-tight ${
-                    theme === 'dark' 
-                      ? 'bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent' 
-                      : 'bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 bg-clip-text text-transparent'
-                  }`}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  Build your{" "}
-                  <motion.span 
-                    className={`block ${
-                      theme === 'dark' 
-                        ? 'bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent' 
-                        : 'bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent'
-                    }`}
-                    whileHover={{
-                      backgroundImage: theme === 'dark' 
-                        ? 'linear-gradient(45deg, #C084FC, #F472B6, #A855F7)' 
-                        : 'linear-gradient(45deg, #7C3AED, #BE185D, #9333EA)',
-                    }}
-                  >
-                    content engine
-                  </motion.span>
-                  <span className="block">from startup DNA</span>
-                </motion.h1>
-              </StaggerItem>
-            </div>
-            
-            <StaggerItem>
-              <motion.p 
-                className={`text-xl leading-relaxed max-w-lg ${
-                  theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-                }`}
-                whileHover={{ color: theme === 'dark' ? '#F3F4F6' : '#374151' }}
-                transition={{ duration: 0.3 }}
+              className="flex items-center space-x-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               >
-                Transform your startup's unique DNA into a{" "}
-                <span className={`font-semibold ${
+                <Sparkles className={`w-6 h-6 ${
                   theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
-                }`}>
-                  zero-hallucination
-                </span>{" "}
-                marketing content engine powered by{" "}
-                <span className={`font-semibold ${
-                  theme === 'dark' ? 'text-pink-400' : 'text-pink-600'
-                }`}>
-                  RAG + Graph
-                </span>{" "}
-                technology. Generate ideas, briefs, and content that's authentically yours.
-              </motion.p>
-            </StaggerItem>
-            
-            <StaggerItem>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-xl shadow-purple-600/25 hover:shadow-purple-600/40 transition-all duration-300 relative overflow-hidden group">
-                    <motion.span 
-                      className="relative z-10 flex items-center space-x-2"
-                      whileHover={{ x: 2 }}
-                    >
-                      <span>Build Your Engine</span>
-                      <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        →
-                      </motion.div>
-                    </motion.span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '0%' }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </Button>
-                </motion.div>
-                
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button 
-                    variant="outline" 
-                    className={`px-8 py-6 text-lg font-semibold rounded-lg backdrop-blur-sm hover:shadow-lg transition-all duration-300 relative group ${
-                      theme === 'dark' 
-                        ? 'border-gray-600 text-white hover:bg-gray-800 hover:border-purple-500' 
-                        : 'border-gray-300 text-gray-900 hover:bg-gray-50 hover:border-purple-500'
-                    }`}
-                  >
-                    <span className="relative z-10">Watch Demo</span>
-                    <motion.div
-                      className={`absolute inset-0 ${
-                        theme === 'dark' 
-                          ? 'bg-gradient-to-r from-purple-900/20 to-pink-900/20' 
-                          : 'bg-gradient-to-r from-purple-50 to-pink-50'
-                      } rounded-lg`}
-                      initial={{ opacity: 0 }}
-                      whileHover={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </Button>
-                </motion.div>
-              </div>
-            </StaggerItem>
+                }`} />
+              </motion.div>
+              <span className={`text-sm font-medium tracking-widest uppercase ${
+                theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
+              }`}>
+                {versatilData.hero.subtitle}
+              </span>
+            </motion.div>
 
-            {/* VERSATIL DNA Metrics */}
-            <StaggerItem>
-              <motion.div 
-                className="flex items-center space-x-6 text-sm"
-                initial={{ opacity: 0.7 }}
-                whileHover={{ opacity: 1 }}
+            {/* Main Title */}
+            <motion.h1
+              className="text-5xl lg:text-7xl font-bold leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <span className={`${
+                theme === 'dark' 
+                  ? 'bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent'
+                  : 'text-gray-900'
+              }`}>
+                Company DNA-powered{" "}
+              </span>
+              <motion.span 
+                className={`${
+                  theme === 'dark' 
+                    ? 'bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent' 
+                    : 'bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent'
+                }`}
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
               >
-                <div className="flex items-center space-x-2">
-                  <motion.div 
-                    className="w-2 h-2 bg-green-500 rounded-full"
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.7, 1, 0.7] 
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity 
-                    }}
-                  />
-                  <span className={theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}>
-                    Zero Hallucinations
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <motion.div 
-                    className="w-2 h-2 bg-purple-500 rounded-full"
-                    animate={{ 
-                      scale: [1, 1.3, 1],
-                      opacity: [0.6, 1, 0.6] 
-                    }}
-                    transition={{ 
-                      duration: 1.5, 
-                      repeat: Infinity,
-                      delay: 0.3
-                    }}
-                  />
-                  <span className={theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}>
-                    Company DNA RAG
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <motion.div 
-                    className={`w-16 h-1 rounded-full overflow-hidden ${
-                      theme === 'dark' ? 'bg-gray-700' : 'bg-gray-200'
+                content that converts
+              </motion.span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              className={`text-xl leading-relaxed max-w-2xl ${
+                theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              {versatilData.hero.description}
+            </motion.p>
+
+            {/* Technology Stack Indicators */}
+            <motion.div
+              className="flex items-center space-x-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              {[
+                { icon: Brain, label: "DNA AI", color: "purple" },
+                { icon: Database, label: "RAG", color: "blue" },
+                { icon: Network, label: "Graph", color: "green" },
+              ].map((tech, index) => {
+                const IconComponent = tech.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    className={`flex items-center space-x-2 px-4 py-2 rounded-full border ${
+                      theme === 'dark' 
+                        ? `border-${tech.color}-500/30 bg-${tech.color}-500/10` 
+                        : `border-${tech.color}-200 bg-${tech.color}-50`
                     }`}
-                    whileHover={{ width: 80 }}
-                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    animate={{ 
+                      boxShadow: [
+                        `0 0 0 0 rgba(147, 51, 234, 0)`,
+                        `0 0 20px 0 rgba(147, 51, 234, 0.3)`,
+                        `0 0 0 0 rgba(147, 51, 234, 0)`
+                      ] 
+                    }}
+                    transition={{ 
+                      boxShadow: { duration: 2, repeat: Infinity, delay: index * 0.7 }
+                    }}
+                  >
+                    <IconComponent className={`w-4 h-4 text-${tech.color}-500`} />
+                    <span className={`text-sm font-medium text-${tech.color}-500`}>
+                      {tech.label}
+                    </span>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+
+            {/* Call to Action */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <motion.button
+                className={`group px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white'
+                    : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white'
+                } shadow-lg hover:shadow-xl transform hover:scale-105`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span className="flex items-center space-x-2">
+                  <span>{versatilData.hero.primaryCTA}</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </motion.div>
+                </span>
+              </motion.button>
+
+              <motion.button
+                className={`px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 ${
+                  theme === 'dark'
+                    ? 'border-purple-500 text-purple-400 hover:bg-purple-500/10'
+                    : 'border-purple-600 text-purple-600 hover:bg-purple-50'
+                }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {versatilData.hero.secondaryCTA}
+              </motion.button>
+            </motion.div>
+
+            {/* Performance Metrics Preview */}
+            <motion.div
+              className={`grid grid-cols-3 gap-6 p-6 rounded-2xl border ${
+                theme === 'dark' 
+                  ? 'bg-gray-900/50 border-gray-700/50' 
+                  : 'bg-gray-50/80 border-gray-200'
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              {[
+                { label: "Brand Consistency", value: "98%", icon: ShieldCheck, color: "purple" },
+                { label: "Content Velocity", value: "247/week", icon: Zap, color: "blue" },
+                { label: "Engagement Lift", value: "+340%", icon: TrendingUp, color: "green" },
+              ].map((metric, index) => {
+                const IconComponent = metric.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    className="text-center"
+                    whileHover={{ scale: 1.05 }}
                   >
                     <motion.div 
-                      className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-                      initial={{ width: '0%' }}
-                      animate={{ width: '98%' }}
-                      transition={{ duration: 2, delay: 1 }}
-                    />
-                  </motion.div>
-                  <span className={theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}>
-                    Brand Consistency
-                  </span>
-                </div>
-              </motion.div>
-            </StaggerItem>
-
-            {/* Key Features Pills */}
-            <StaggerItem>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { icon: Brain, label: "Ideas Generation", color: "purple" },
-                  { icon: Database, label: "Content Briefs", color: "pink" },
-                  { icon: Zap, label: "Auto Content", color: "purple" },
-                  { icon: Target, label: "Brand Alignment", color: "pink" }
-                ].map((feature, index) => {
-                  const IconComponent = feature.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium ${
-                        feature.color === 'purple'
-                          ? 'bg-purple-500/10 text-purple-600 border border-purple-500/20'
-                          : 'bg-pink-500/10 text-pink-600 border border-pink-500/20'
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.8 + index * 0.1 }}
+                      className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-2 bg-${metric.color}-500/20`}
+                      animate={{ rotate: [0, 5, -5, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
                     >
-                      <IconComponent className="w-4 h-4" />
-                      <span>{feature.label}</span>
+                      <IconComponent className={`w-6 h-6 text-${metric.color}-500`} />
                     </motion.div>
-                  );
-                })}
-              </div>
-            </StaggerItem>
-          </div>
-        </StaggerContainer>
+                    <div className={`text-2xl font-bold text-${metric.color}-500 mb-1`}>
+                      {metric.value}
+                    </div>
+                    <div className={`text-xs ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                      {metric.label}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </motion.div>
 
-        {/* Right Content - VERSATIL Content Engine Visualization */}
-        <motion.div 
-          className="hidden lg:block"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <VersatilContentEngine />
-        </motion.div>
+          {/* Right Column - Technology Showcase */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {/* Main Technology Card */}
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentShowcase}
+                  className={`relative p-8 rounded-3xl border-2 backdrop-blur-xl ${
+                    theme === 'dark'
+                      ? 'bg-gray-900/60 border-purple-500/30'
+                      : 'bg-white/80 border-purple-200'
+                  } shadow-2xl`}
+                  initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, rotateY: -90 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  {/* Technology Icon */}
+                  <motion.div
+                    className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg`}
+                    animate={{ 
+                      rotate: [0, 10, -10, 0],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                  >
+                    {React.createElement(
+                      technologyIcons[versatilData.technologyShowcase[currentShowcase].tech],
+                      { className: "w-8 h-8 text-white" }
+                    )}
+                  </motion.div>
+
+                  {/* Technology Info */}
+                  <h3 className="text-2xl font-bold mb-2">
+                    {versatilData.technologyShowcase[currentShowcase].title}
+                  </h3>
+                  <p className={`text-lg mb-6 ${
+                    theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
+                  }`}>
+                    {versatilData.technologyShowcase[currentShowcase].tech}
+                  </p>
+
+                  {/* Technology Image */}
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <motion.img
+                      src={versatilData.technologyShowcase[currentShowcase].image}
+                      alt={versatilData.technologyShowcase[currentShowcase].title}
+                      className="w-full h-64 object-cover"
+                      initial={{ scale: 1.2 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.8 }}
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${
+                      theme === 'dark'
+                        ? 'from-purple-900/60 to-transparent'
+                        : 'from-purple-500/20 to-transparent'
+                    }`} />
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Floating Technology Cards */}
+              {versatilData.technologyShowcase.slice(0, 3).map((tech, index) => {
+                const IconComponent = technologyIcons[tech.tech];
+                return (
+                  <motion.div
+                    key={tech.id}
+                    className={`absolute w-20 h-20 rounded-2xl border ${
+                      theme === 'dark'
+                        ? 'bg-gray-800/80 border-gray-700/50'
+                        : 'bg-white/80 border-gray-200'
+                    } backdrop-blur-lg shadow-xl flex items-center justify-center`}
+                    style={{
+                      top: `${20 + index * 25}%`,
+                      right: `${-10 + index * 5}%`,
+                      zIndex: -index,
+                    }}
+                    animate={{
+                      y: [0, -10, 0],
+                      rotate: [0, 5, -5, 0],
+                    }}
+                    transition={{
+                      duration: 3 + index,
+                      repeat: Infinity,
+                      delay: index * 0.5,
+                    }}
+                    whileHover={{ scale: 1.1, zIndex: 10 }}
+                  >
+                    <IconComponent className={`w-8 h-8 text-purple-500`} />
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Technology Progress Indicators */}
+            <motion.div
+              className="flex justify-center space-x-2 mt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              {versatilData.technologyShowcase.map((_, index) => (
+                <motion.div
+                  key={index}
+                  className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                    index === currentShowcase
+                      ? 'bg-purple-500 scale-125'
+                      : theme === 'dark' 
+                        ? 'bg-gray-600 hover:bg-gray-500'
+                        : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  onClick={() => setCurrentShowcase(index)}
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                />
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
-      
-      {/* Enhanced Bottom Fade */}
-      <motion.div 
-        className={`absolute bottom-0 left-0 right-0 h-32 ${
-          theme === 'dark' 
-            ? 'bg-gradient-to-t from-black to-transparent' 
-            : 'bg-gradient-to-t from-white to-transparent'
-        }`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-      />
     </section>
   );
 };
