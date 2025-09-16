@@ -35,7 +35,7 @@ const SimpleCTA = () => {
             }`}>
               your transformation?
             </span>
-          </h2>
+          </motion.h2>
 
           <motion.p
             className={`text-lg mb-8 max-w-2xl mx-auto ${
