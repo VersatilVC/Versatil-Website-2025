@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import NewHomePage from "./pages/NewHomePage";
+import CleanHomePage from "./pages/CleanHomePage";
 import PlatformPage from "./pages/PlatformPage";
 import CasesPage from "./pages/CasesPage";
 import PricingPage from "./pages/PricingPage";
@@ -15,7 +15,7 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<NewHomePage />} />
+        <Route path="/" element={<CleanHomePage />} />
         <Route path="/platform" element={<PlatformPage />} />
         <Route path="/cases" element={<CasesPage />} />
         <Route path="/pricing" element={<PricingPage />} />
