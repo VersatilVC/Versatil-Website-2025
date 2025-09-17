@@ -110,6 +110,9 @@ const SimpleCTA = () => {
           </motion.div>
         </motion.div>
       </div>
+      
+      {/* Calendar Modal */}
+      <CalendarModal isOpen={isOpen} onClose={closeCalendar} />
     </section>
   );
 };
