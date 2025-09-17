@@ -91,6 +91,9 @@ const Header = () => {
           </div>
         </div>
       </div>
+      
+      {/* Calendar Modal */}
+      <CalendarModal isOpen={isOpen} onClose={closeCalendar} />
     </header>
   );
 };
