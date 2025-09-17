@@ -403,21 +403,21 @@ const EnhancedCaseStudies = () => {
 
               {/* Workflow Blueprint */}
               <div>
-                <h4 className={`text-lg font-black mb-4 ${
+                <h4 className={`text-base md:text-lg font-black mb-4 ${
                   theme === 'dark' ? 'text-white' : 'text-black'
                 }`}>
                   WORKFLOW BLUEPRINT
                 </h4>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 md:gap-4">
                   {Object.entries(caseStudies[activeCase].workflow).map(([phase, details], index) => (
                     <div
                       key={phase}
-                      className={`p-4 border ${
+                      className={`p-3 md:p-4 border ${
                         theme === 'dark' ? 'border-gray-600 bg-gray-700/30' : 'border-gray-300 bg-gray-50'
                       }`}
                       style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
                     >
-                      <div className={`text-xs font-bold mb-2 ${
+                      <div className={`text-xs md:text-sm font-bold mb-2 ${
                         theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
                       }`}>
                         {details.title}
