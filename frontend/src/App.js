@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import UpdatedHomePage from "./pages/UpdatedHomePage";
 import ShoreditchPage from "./pages/ShoreditchPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import PlatformPage from "./pages/PlatformPage";
 import CasesPage from "./pages/CasesPage";
 import PricingPage from "./pages/PricingPage";
