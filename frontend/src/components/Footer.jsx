@@ -237,7 +237,6 @@ const Footer = () => {
                 { name: "About VERSATIL", href: "#about" },
                 { name: "Success Cases", href: "#cases" },
                 { name: "DNA Technology", href: "#technology" },
-                { name: "Pricing", href: "#pricing" },
                 { name: "Contact", href: "#contact" },
                 { name: "Careers", href: "#careers" },
               ].map((item, index) => (
