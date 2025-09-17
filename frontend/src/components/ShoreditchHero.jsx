@@ -343,7 +343,7 @@ const ShoreditchHero = () => {
                       <span>{path.action}</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
-                  </motion.a>
+                  </motion.button>
                 </motion.div>
               );
             })}
