@@ -505,35 +505,54 @@ const EnhancedCaseStudies = () => {
                 </div>
               </div>
 
-              {/* Business Impact */}
-              <div>
-                <h4 className={`text-lg font-black mb-4 ${
-                  theme === 'dark' ? 'text-white' : 'text-black'
-                }`}>
-                  BUSINESS IMPACT
-                </h4>
-                <div className="grid grid-cols-1 gap-3">
+              {/* Business Impact Card */}
+              <div className={`p-6 border-2 ${
+                theme === 'dark' ? 'border-orange-500/30 bg-orange-500/5' : 'border-orange-200 bg-orange-50'
+              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+                <div className="flex items-center space-x-3 mb-5">
+                  <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                    theme === 'dark' ? 'border-orange-400 bg-orange-400/20' : 'border-orange-600 bg-orange-100'
+                  }`}>
+                    <span className={`text-sm font-black ${
+                      theme === 'dark' ? 'text-orange-300' : 'text-orange-600'
+                    }`}>3</span>
+                  </div>
+                  <h4 className={`text-base md:text-lg font-black ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>
+                    BUSINESS IMPACT
+                  </h4>
+                </div>
+                <div className="grid grid-cols-1 gap-4">
                   {Object.entries(caseStudies[activeCase].impact).map(([type, value], index) => (
                     <div
                       key={type}
-                      className={`p-3 border-l-4 ${
+                      className={`p-4 border-l-4 transition-all duration-300 hover:scale-105 ${
                         type === 'financial' 
-                          ? 'border-green-500 bg-green-500/10'
+                          ? theme === 'dark' ? 'border-green-400 bg-green-500/10' : 'border-green-500 bg-green-50'
                           : type === 'operational'
-                          ? 'border-blue-500 bg-blue-500/10'
-                          : 'border-purple-500 bg-purple-500/10'
+                          ? theme === 'dark' ? 'border-blue-400 bg-blue-500/10' : 'border-blue-500 bg-blue-50'
+                          : theme === 'dark' ? 'border-purple-400 bg-purple-500/10' : 'border-purple-500 bg-purple-50'
                       }`}
+                      style={{ clipPath: 'polygon(0 0, calc(100% - 5px) 0, 100% 100%, 5px 100%)' }}
                     >
-                      <div className={`text-xs font-bold uppercase tracking-wider mb-1 ${
+                      <div className={`text-xs font-bold uppercase tracking-wider mb-2 flex items-center space-x-2 ${
                         type === 'financial' 
-                          ? 'text-green-500'
+                          ? theme === 'dark' ? 'text-green-400' : 'text-green-600'
                           : type === 'operational'
-                          ? 'text-blue-500'
-                          : 'text-purple-500'
+                          ? theme === 'dark' ? 'text-blue-400' : 'text-blue-600'
+                          : theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
                       }`}>
-                        {type}
+                        <span className={`w-2 h-2 rounded-full ${
+                          type === 'financial' 
+                            ? theme === 'dark' ? 'bg-green-400' : 'bg-green-600'
+                            : type === 'operational'
+                            ? theme === 'dark' ? 'bg-blue-400' : 'bg-blue-600'
+                            : theme === 'dark' ? 'bg-purple-400' : 'bg-purple-600'
+                        }`}></span>
+                        <span>{type}</span>
                       </div>
-                      <div className={`text-sm font-semibold ${
+                      <div className={`text-sm font-semibold leading-relaxed ${
                         theme === 'dark' ? 'text-white' : 'text-black'
                       }`}>
                         {value}
