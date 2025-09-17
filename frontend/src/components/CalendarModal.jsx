@@ -68,13 +68,16 @@ const CalendarModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Calendar Iframe */}
-          <div className="flex-1 p-6">
+          <div className="flex-1 p-3 overflow-hidden">
             <iframe
               src="https://cal.com/nissimmenashe/versatil"
-              className="w-full h-full rounded-lg border-2 border-gray-300"
+              className={`w-full h-full rounded-lg border-2 ${
+                theme === 'dark' ? 'border-gray-600' : 'border-gray-300'
+              }`}
               frameBorder="0"
               title="Book a Demo - VERSATIL Calendar"
               allow="camera; microphone; geolocation; clipboard-read; clipboard-write"
+              style={{ minHeight: '600px' }}
             />
           </div>
         </motion.div>
