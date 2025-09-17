@@ -13,7 +13,7 @@ const UpdatedHomePage = () => {
       <div className="min-h-screen">
         <NewHomepageHero />
         <ProblemSolutionSection />
-        <VersatilBrainArchitecture />
+        <WorkflowPlanArchitecture />
         <CaseStudiesSection />
         <SimpleCTA />
         <Footer />
