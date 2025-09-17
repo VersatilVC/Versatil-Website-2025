@@ -147,13 +147,23 @@ const FAQ = () => {
                       } : {}}
                       transition={{ duration: 0.5 }}
                     >
-                      <IconComponent className={`w-6 h-6 ${
-                        isOpen 
-                          ? 'text-white' 
-                          : theme === 'dark' 
-                            ? 'text-gray-400' 
-                            : 'text-gray-600'
-                      } transition-colors duration-300`} />
+                      {typeof IconComponent === 'function' ? (
+                        <IconComponent className={`w-6 h-6 ${
+                          isOpen 
+                            ? 'text-white' 
+                            : theme === 'dark' 
+                              ? 'text-gray-400' 
+                              : 'text-gray-600'
+                        } transition-colors duration-300`} color="currentColor" />
+                      ) : (
+                        <IconComponent className={`w-6 h-6 ${
+                          isOpen 
+                            ? 'text-white' 
+                            : theme === 'dark' 
+                              ? 'text-gray-400' 
+                              : 'text-gray-600'
+                        } transition-colors duration-300`} />
+                      )}
                     </motion.div>
 
                     {/* Question Text */}
