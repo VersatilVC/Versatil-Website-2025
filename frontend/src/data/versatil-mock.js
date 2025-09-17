@@ -13,8 +13,6 @@ export const versatilData = {
   navigation: [
     { name: "Technology", href: "#technology" },
     { name: "Cases", href: "#cases" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Platform", href: "#platform" },
   ],
 
   // Hero section content
