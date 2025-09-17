@@ -1,0 +1,25 @@
+import React from "react";
+import MotionWrapper from "../components/MotionWrapper";
+import ShoreditchHero from "../components/ShoreditchHero";
+import ShoreditchProblemSolution from "../components/ShoreditchProblemSolution";
+import WorkflowPlanArchitecture from "../components/WorkflowPlanArchitecture";
+import CaseStudiesSection from "../components/CaseStudiesSection";
+import SimpleCTA from "../components/SimpleCTA";
+import Footer from "../components/Footer";
+
+const ShoreditchPage = () => {
+  return (
+    <MotionWrapper>
+      <div className="min-h-screen">
+        <ShoreditchHero />
+        <ShoreditchProblemSolution />
+        <WorkflowPlanArchitecture />
+        <CaseStudiesSection />
+        <SimpleCTA />
+        <Footer />
+      </div>
+    </MotionWrapper>
+  );
+};
+
+export default ShoreditchPage;
