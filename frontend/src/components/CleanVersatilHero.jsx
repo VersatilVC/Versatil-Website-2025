@@ -176,7 +176,7 @@ const CleanVersatilHero = () => {
             Trusted by teams at
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 text-sm font-medium">
-            {["Cyabra", "Hyro", "SolarWine.ai", "NVIDIA Inception", "Google for Startups"].map((company, index) => (
+            {["Cyabra", "SolarWine.ai", "NVIDIA Inception", "Google for Startups", "Anthropic"].map((company, index) => (
               <motion.span
                 key={index}
                 className={`${
