@@ -301,13 +301,13 @@ const EnhancedCaseStudies = () => {
         </motion.div>
 
         {/* Case Study Navigation */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex space-x-4">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-6 md:mb-8 space-y-4 md:space-y-0">
+          <div className="flex flex-wrap justify-center md:justify-start space-x-2 md:space-x-4">
             {caseStudies.map((study, index) => (
               <motion.button
                 key={index}
                 onClick={() => setActiveCase(index)}
-                className={`flex items-center space-x-3 px-6 py-3 border-2 transition-all duration-300 ${
+                className={`flex items-center space-x-2 md:space-x-3 px-3 md:px-6 py-2 md:py-3 border-2 transition-all duration-300 ${
                   activeCase === index
                     ? theme === 'dark'
                       ? 'border-purple-500 bg-purple-500/20 text-purple-300'
@@ -320,8 +320,8 @@ const EnhancedCaseStudies = () => {
                 whileTap={{ scale: 0.98 }}
                 style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
               >
-                <TrustedBrandLogo company={study.company} className="h-6 w-16" />
-                <span className="font-bold text-sm">{study.company}</span>
+                <TrustedBrandLogo company={study.company} className="h-4 w-12 md:h-6 md:w-16" />
+                <span className="font-bold text-xs md:text-sm">{study.company}</span>
               </motion.button>
             ))}
           </div>
