@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { versatilData } from "../data/versatil-mock";
-import { Menu, X, Sun, Moon, Sparkles, Brain, Database, Network } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { DNAIcon, RAGIcon, GraphIcon, BrandedSparkles } from "./BrandedIcons";
 
 const Navigation = () => {
   const { theme, toggleTheme } = useTheme();
