@@ -99,9 +99,9 @@ const Footer = () => {
               </h4>
               <div className="flex flex-wrap gap-3">
                 {[
-                  { icon: Brain, label: "Company DNA AI", color: "purple" },
-                  { icon: Database, label: "RAG Technology", color: "blue" },
-                  { icon: Network, label: "Graph Neural Networks", color: "green" },
+                  { icon: DNAIcon, label: "Company DNA AI", color: "purple" },
+                  { icon: RAGIcon, label: "RAG Technology", color: "blue" },
+                  { icon: GraphIcon, label: "Graph Neural Networks", color: "green" },
                 ].map((tech, index) => {
                   const IconComponent = tech.icon;
                   return (
@@ -122,7 +122,7 @@ const Footer = () => {
                         delay: index * 0.5
                       }}
                     >
-                      <IconComponent className={`w-4 h-4 text-${tech.color}-500`} />
+                      <IconComponent className={`w-4 h-4 text-${tech.color}-500`} color="currentColor" />
                       <span className={`text-sm font-medium text-${tech.color}-500`}>
                         {tech.label}
                       </span>
