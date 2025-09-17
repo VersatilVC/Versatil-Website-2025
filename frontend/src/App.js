@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import ComprehensiveHomePage from "./pages/ComprehensiveHomePage";
+import UpdatedHomePage from "./pages/UpdatedHomePage";
 import PlatformPage from "./pages/PlatformPage";
 import CasesPage from "./pages/CasesPage";
 import PricingPage from "./pages/PricingPage";
