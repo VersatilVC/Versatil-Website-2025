@@ -20,7 +20,7 @@ const FAQ = () => {
   };
 
   const getFAQIcon = (index) => {
-    const icons = [Brain, Database, Network, HelpCircle];
+    const icons = [DNAIcon, RAGIcon, GraphIcon, HelpCircle];
     return icons[index % icons.length];
   };
 
