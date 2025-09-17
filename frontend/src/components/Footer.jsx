@@ -287,7 +287,7 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="w-4 h-4" />
-                <span className="text-sm">San Francisco, CA</span>
+                <span className="text-sm">Tel-Aviv, Israel</span>
               </motion.div>
             </div>
           </motion.div>
