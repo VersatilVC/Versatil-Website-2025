@@ -74,9 +74,9 @@ const ComprehensiveHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <Sparkles className={`w-6 h-6 ${
+            <BrandedSparkles className={`w-6 h-6 ${
               theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
-            }`} />
+            }`} color="currentColor" />
             <span className={`text-sm font-medium tracking-widest uppercase ${
               theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
             }`}>
