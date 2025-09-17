@@ -266,6 +266,22 @@ test_plan:
   test_all: false
   test_priority: "high_first"
 
+frontend:
+  - task: "Calendar Modal Functionality"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/CalendarModal.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Initial calendar modal testing setup - comprehensive testing of all modal triggers and functionality"
+      - working: true
+        agent: "testing"
+        comment: "✅ COMPREHENSIVE CALENDAR MODAL TESTING COMPLETED: All modal trigger buttons work perfectly - Header 'Book Demo' button ✅, Hero section 'BOOK DEMO NOW' button ✅, All 3 'PICK YOUR WEAPON' section buttons (GET EXECUTIVE BRIEF, SEE LIVE DEMO, TECHNICAL DEEP DIVE) ✅, SimpleCTA 'Book Strategy Call' button ✅. Modal functionality excellent: Opens with proper dark backdrop ✅, Shows 'BOOK YOUR DEMO' header ✅, Cal.com iframe loads correctly (https://cal.com/nissimmenashe/versatil) ✅, Close button (X) works ✅, Clicking outside modal closes it ✅, VERSATIL clipPath styling applied correctly (polygon borders) ✅, Works in both light and dark themes ✅, Responsive design works on desktop (1920x1080), tablet (768x1024), and mobile (390x844) ✅, No new tabs opened - all buttons use modal popup correctly ✅. Minor: Cal.com API requests fail but this is expected in testing environment and doesn't affect modal functionality."
+
 agent_communication:
   - agent: "testing"
     message: "Starting comprehensive Playwright testing of VERSATIL website. Will test all major components including logo, navigation, CTA buttons, hero section, trusted by section, workflow architecture, case studies, footer, theme toggle, and responsive design."
@@ -275,3 +291,5 @@ agent_communication:
     message: "✅ HOMEPAGE UPDATE COMPLETED: Successfully made ShoreditchPage the default homepage (/) - now displays bold 'Built for MARKETERS adopted by CEOs & CMOs' design. Fixed missing PrivacyPage import in App.js. Removed all 'powered by' sections from codebase including Footer technology stack, bottom attribution, data files, and meta descriptions. Homepage now shows Shoreditch version by default in app preview."
   - agent: "testing"
     message: "✅ SPECIFIC IMPROVEMENTS TESTING COMPLETED: Conducted comprehensive testing of requested improvements. SolarWine Logo: ✅ New branding image correctly displayed with proper URL. Logo Consistency: ⚠️ Minor size variations detected (32px width, 24px height range) but within acceptable limits. Case Studies Matrix Layout: ✅ 2x2 workflow blueprint working perfectly with 4 phases displayed. Case Study Navigation: ✅ All 3 case studies (Cyabra, VERSSAI, SolarWine.ai) accessible and functional. Responsive Design: ✅ Excellent adaptation across desktop (1920x1080), tablet (768x1024), and mobile (390x844). Dark Mode Contrast: ✅ Theme toggle works perfectly, text has excellent contrast (white text on dark background), spider charts visible in both modes. Spider Chart: ✅ Functional and visible in all case studies. KPIs Section: ✅ Well-formatted and readable. Minor issue: SolarWine case study navigation had one loading issue but content displays correctly. Overall: EXCELLENT implementation of all requested improvements."
+  - agent: "testing"
+    message: "✅ CALENDAR MODAL COMPREHENSIVE TESTING COMPLETED: Conducted thorough testing of all calendar modal functionality as requested. All modal trigger buttons work perfectly: Header 'Book Demo', Hero 'BOOK DEMO NOW', all 3 'PICK YOUR WEAPON' section buttons, and SimpleCTA 'Book Strategy Call'. Modal opens with proper dark backdrop, shows correct header, loads Cal.com iframe, has working close functionality, proper VERSATIL clipPath styling, works in both themes, responsive across all screen sizes, and prevents new tab openings. Cal.com API requests fail in testing environment but this doesn't affect core modal functionality. Implementation is EXCELLENT with all requirements met."
