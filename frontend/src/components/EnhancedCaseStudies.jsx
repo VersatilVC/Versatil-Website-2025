@@ -371,34 +371,35 @@ const EnhancedCaseStudies = () => {
           >
             
             {/* Left Column - Details */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               
-              {/* Header */}
-              <div>
+              {/* Header Card */}
+              <div className={`p-6 border-2 ${
+                theme === 'dark' ? 'border-purple-500/30 bg-purple-500/5' : 'border-purple-200 bg-purple-50'
+              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
                 <div className="flex flex-col md:flex-row items-start md:items-center space-y-3 md:space-y-0 md:space-x-4 mb-4">
                   <TrustedBrandLogo 
                     company={caseStudies[activeCase].company} 
-                    className="h-10 w-20 md:h-12 md:w-24" 
+                    className="h-12 w-24 md:h-14 md:w-28" 
                   />
-                  <div>
-                    <h3 className={`text-xl md:text-2xl font-black ${
+                  <div className="flex-1">
+                    <h3 className={`text-xl md:text-2xl font-black mb-2 ${
                       theme === 'dark' ? 'text-white' : 'text-black'
                     }`}>
                       {caseStudies[activeCase].title}
                     </h3>
-                    <p className={`text-sm font-bold ${
+                    <p className={`text-sm font-bold mb-3 ${
                       theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
                     }`}>
                       {caseStudies[activeCase].industry}
                     </p>
+                    <p className={`text-sm md:text-base ${
+                      theme === 'dark' ? 'text-gray-200' : 'text-gray-700'
+                    } font-medium leading-relaxed`}>
+                      {caseStudies[activeCase].challenge}
+                    </p>
                   </div>
                 </div>
-                
-                <p className={`text-sm md:text-base ${
-                  theme === 'dark' ? 'text-gray-200' : 'text-gray-700'
-                } font-medium`}>
-                  {caseStudies[activeCase].challenge}
-                </p>
               </div>
 
               {/* Workflow Blueprint */}
