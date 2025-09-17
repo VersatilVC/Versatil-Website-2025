@@ -158,7 +158,7 @@ const ShoreditchHero = () => {
           >
             Enterprise content at startup speed.
             <br />
-            <span className={`${theme === 'dark' ? 'text-red-400' : 'text-red-600'}`}>
+            <span className={`${theme === 'dark' ? 'text-pink-400' : 'text-pink-600'}`}>
               Zero compromises. Zero hallucinations.
             </span>
           </motion.p>
