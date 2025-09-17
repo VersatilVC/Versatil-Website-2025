@@ -268,7 +268,7 @@ const Navigation = () => {
                   transition={{ delay: 0.4 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Sparkles className="w-5 h-5" />
+                  <BrandedSparkles className="w-5 h-5" color="currentColor" />
                   <span>Try VERSATIL</span>
                 </motion.button>
 
