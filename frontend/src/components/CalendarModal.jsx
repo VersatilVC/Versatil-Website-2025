@@ -37,16 +37,16 @@ const CalendarModal = ({ isOpen, onClose }) => {
           style={{ clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)' }}
         >
           {/* Header */}
-          <div className={`flex items-center justify-between p-6 border-b-2 ${
+          <div className={`flex items-center justify-between p-4 border-b-2 flex-shrink-0 ${
             theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
           }`}>
             <div>
-              <h2 className={`text-2xl font-black ${
+              <h2 className={`text-xl font-black ${
                 theme === 'dark' ? 'text-white' : 'text-black'
               }`}>
                 BOOK YOUR DEMO
               </h2>
-              <p className={`text-sm font-medium ${
+              <p className={`text-xs font-medium ${
                 theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
               }`}>
                 Schedule a personalized VERSATIL demonstration
