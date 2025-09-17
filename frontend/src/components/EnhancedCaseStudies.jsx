@@ -590,8 +590,10 @@ const EnhancedCaseStudies = () => {
                   </div>
                   
                   <div className="flex flex-col items-center">
-                    <div className="w-full max-w-sm md:max-w-none mb-6">
-                      <SpiderChart data={caseStudies[activeCase].okrs} size={280} />
+                    <div className="w-full flex justify-center mb-6">
+                      <div className="w-80 h-80 flex items-center justify-center">
+                        <SpiderChart data={caseStudies[activeCase].okrs} size={280} />
+                      </div>
                     </div>
                     
                     {/* Enhanced Legend */}
