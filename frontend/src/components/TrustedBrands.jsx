@@ -56,55 +56,21 @@ const BrandLogos = {
 
   "SolarWine.ai": ({ className }) => (
     <div className={`${className} flex items-center justify-center`}>
-      <svg viewBox="0 0 120 40" className="w-full h-full">
-        <defs>
-          <radialGradient id="solarGradient" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" style={{ stopColor: "#FCD34D", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "#F59E0B", stopOpacity: 1 }} />
-          </radialGradient>
-        </defs>
-        <circle cx="12" cy="20" r="8" fill="url(#solarGradient)" />
-        <path d="M12 14 L14 18 L18 18 L15 21 L16 25 L12 23 L8 25 L9 21 L6 18 L10 18 Z" fill="white" />
-        <text
-          x="24"
-          y="18"
-          className="fill-current text-sm font-medium"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          SolarWine
-        </text>
-        <text
-          x="24"
-          y="28"
-          className="fill-current text-xs opacity-75"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          .ai
-        </text>
-      </svg>
+      <img 
+        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/5q4nbwfz_WhatsApp%20Image%202025-09-17%20at%2014.36.41.jpeg"
+        alt="SolarWine.ai"
+        className="w-full h-full object-contain"
+      />
     </div>
   ),
 
   "Sweetwood": ({ className }) => (
     <div className={`${className} flex items-center justify-center`}>
-      <svg viewBox="0 0 110 40" className="w-full h-full">
-        <defs>
-          <linearGradient id="sweetwoodBrown" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: "#92400E", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "#D97706", stopOpacity: 1 }} />
-          </linearGradient>
-        </defs>
-        <path d="M8 28 Q12 8 16 28" stroke="url(#sweetwoodBrown)" strokeWidth="4" fill="none" />
-        <circle cx="12" cy="12" r="3" fill="url(#sweetwoodBrown)" />
-        <text
-          x="22"
-          y="24"
-          className="fill-current text-sm font-medium"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          Sweetwood
-        </text>
-      </svg>
+      <img 
+        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/12hch8i8_%24V6pQOfGMNxbwTmxtnFwhrZh6h4OHmKWzFLPeGNuulpHfKXH1nQi9Py%20%281%29.png"
+        alt="Sweetwood"
+        className="w-full h-full object-contain"
+      />
     </div>
   ),
 
