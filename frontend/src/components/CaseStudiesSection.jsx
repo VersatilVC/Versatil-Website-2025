@@ -38,8 +38,7 @@ const CaseStudiesSection = () => {
   const getCompanyColor = (company) => {
     const colors = {
       'Cyabra': 'blue',
-      'SolarWine.ai': 'green', 
-      'Hyro.ai': 'purple'
+      'SolarWine.ai': 'green'
     };
     return colors[company] || 'blue';
   };
