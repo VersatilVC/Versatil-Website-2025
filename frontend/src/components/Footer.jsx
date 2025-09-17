@@ -30,10 +30,66 @@ const menuDescriptions = {
 
 const Footer = () => {
   const { theme } = useTheme();
+  const [hoveredItem, setHoveredItem] = useState(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Smart Menu Item Component with Popup
+  const SmartMenuItem = ({ item, index }) => (
+    <motion.li
+      key={index}
+      whileHover={{ x: 5 }}
+      transition={{ duration: 0.2 }}
+      className="relative"
+      onMouseEnter={() => setHoveredItem(item.name)}
+      onMouseLeave={() => setHoveredItem(null)}
+    >
+      <a
+        href={item.href}
+        className={`transition-colors duration-300 ${
+          theme === 'dark' 
+            ? 'text-gray-400 hover:text-purple-300' 
+            : 'text-gray-600 hover:text-purple-600'
+        } flex items-center space-x-2 group relative`}
+      >
+        <motion.div
+          className={`w-1 h-1 rounded-full ${
+            theme === 'dark' ? 'bg-purple-400' : 'bg-purple-600'
+          } opacity-0 group-hover:opacity-100 transition-opacity`}
+          animate={{ scale: [1, 1.3, 1] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        />
+        <span>{item.name}</span>
+      </a>
+      
+      {/* Smart Popup */}
+      <AnimatePresence>
+        {hoveredItem === item.name && (
+          <motion.div
+            className={`absolute left-0 bottom-full mb-2 p-3 rounded-lg shadow-lg z-50 max-w-xs ${
+              theme === 'dark' 
+                ? 'bg-gray-800 border border-gray-700 text-gray-200' 
+                : 'bg-white border border-gray-200 text-gray-700'
+            }`}
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="text-xs leading-relaxed">
+              {menuDescriptions[item.name]}
+            </div>
+            {/* Arrow pointer */}
+            <div className={`absolute top-full left-4 w-2 h-2 transform rotate-45 ${
+              theme === 'dark' ? 'bg-gray-800' : 'bg-white'
+            }`} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.li>
+  );
 
   return (
     <footer className={`relative overflow-hidden ${
