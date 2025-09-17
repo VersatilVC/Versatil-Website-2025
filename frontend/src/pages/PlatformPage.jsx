@@ -13,7 +13,7 @@ const PlatformPage = () => {
     {
       icon: Zap,
       title: "AI-Assisted Workflow",
-      description: "Intelligent request routing and project management powered by AI"
+      description: "Intelligent request routing and project management with AI"
     },
     {
       icon: Users,
