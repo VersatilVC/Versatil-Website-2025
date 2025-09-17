@@ -104,7 +104,7 @@ const ShoreditchHero = () => {
         
         {/* Shock & Awe Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-16 mt-8"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
