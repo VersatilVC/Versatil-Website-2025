@@ -288,29 +288,7 @@ const Footer = () => {
                 { name: "Contact", href: "#contact" },
                 { name: "Careers", href: "#careers" },
               ].map((item, index) => (
-                <motion.li
-                  key={index}
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <a
-                    href={item.href}
-                    className={`transition-colors duration-300 ${
-                      theme === 'dark' 
-                        ? 'text-gray-400 hover:text-purple-300' 
-                        : 'text-gray-600 hover:text-purple-600'
-                    } flex items-center space-x-2 group`}
-                  >
-                    <motion.div
-                      className={`w-1 h-1 rounded-full ${
-                        theme === 'dark' ? 'bg-purple-400' : 'bg-purple-600'
-                      } opacity-0 group-hover:opacity-100 transition-opacity`}
-                      animate={{ scale: [1, 1.3, 1] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.1 }}
-                    />
-                    <span>{item.name}</span>
-                  </a>
-                </motion.li>
+                <SmartMenuItem key={index} item={item} index={index} />
               ))}
             </ul>
 
