@@ -386,6 +386,9 @@ const ShoreditchHero = () => {
           </div>
         </motion.div>
       </div>
+      
+      {/* Calendar Modal */}
+      <CalendarModal isOpen={isOpen} onClose={closeCalendar} />
     </section>
   );
 };
