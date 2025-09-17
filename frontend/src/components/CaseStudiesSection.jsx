@@ -44,7 +44,7 @@ const CaseStudiesSection = () => {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section id="cases" className="py-20 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <motion.div
