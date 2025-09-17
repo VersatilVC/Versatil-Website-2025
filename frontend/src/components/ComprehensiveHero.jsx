@@ -143,7 +143,8 @@ const ComprehensiveHero = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="font-semibold">📊 AVERAGE CUSTOMER IMPACT (90 DAYS)</span>
+              <AnalyticsIcon className="w-5 h-5 inline-block mr-2" color="currentColor" />
+              <span className="font-semibold">AVERAGE CUSTOMER IMPACT (90 DAYS)</span>
               {showMetrics ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
             </motion.button>
 
