@@ -333,10 +333,8 @@ const ShoreditchHero = () => {
                   }`}>
                     {path.hook}
                   </p>
-                  <motion.a
-                    href="https://cal.com/nissimmenashe/versatil"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <motion.button
+                    onClick={openCalendar}
                     className={`w-full px-4 py-3 font-bold text-sm transition-all duration-300 inline-flex items-center justify-center border-2 ${colorClasses.border} ${colorClasses.text} ${colorClasses.hoverBg} hover:text-white`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
