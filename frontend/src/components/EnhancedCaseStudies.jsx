@@ -443,7 +443,7 @@ const EnhancedCaseStudies = () => {
 
               {/* KPIs Table */}
               <div>
-                <h4 className={`text-lg font-black mb-4 ${
+                <h4 className={`text-base md:text-lg font-black mb-4 ${
                   theme === 'dark' ? 'text-white' : 'text-black'
                 }`}>
                   KEY PERFORMANCE INDICATORS
@@ -452,23 +452,25 @@ const EnhancedCaseStudies = () => {
                   {caseStudies[activeCase].kpis.map((kpi, index) => (
                     <div
                       key={index}
-                      className={`flex items-center justify-between p-3 border ${
-                        theme === 'dark' ? 'border-gray-600 bg-gray-700/30' : 'border-gray-300 bg-gray-50'
+                      className={`flex flex-col md:flex-row md:items-center md:justify-between p-3 border ${
+                        theme === 'dark' ? 'border-gray-500 bg-gray-700/50' : 'border-gray-300 bg-gray-50'
                       }`}
                       style={{ clipPath: 'polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%)' }}
                     >
-                      <div className={`text-sm font-bold ${
+                      <div className={`text-sm font-bold mb-2 md:mb-0 ${
                         theme === 'dark' ? 'text-white' : 'text-black'
                       }`}>
                         {kpi.metric}
                       </div>
                       <div className="flex items-center space-x-4">
                         <span className={`text-sm ${
-                          theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                          theme === 'dark' ? 'text-gray-200' : 'text-gray-600'
                         }`}>
                           {kpi.before} → {kpi.after}
                         </span>
-                        <span className="text-sm font-bold text-green-500">
+                        <span className={`text-sm font-bold ${
+                          theme === 'dark' ? 'text-green-400' : 'text-green-600'
+                        }`}>
                           {kpi.improvement}
                         </span>
                       </div>
