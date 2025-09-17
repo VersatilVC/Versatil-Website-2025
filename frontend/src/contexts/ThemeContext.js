@@ -13,7 +13,9 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
     if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'light';
+      // Force clear any existing dark theme preference and default to light
+      localStorage.removeItem('theme');
+      return 'light';
     }
     return 'light';
   });
