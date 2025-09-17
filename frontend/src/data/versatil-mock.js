@@ -109,7 +109,7 @@ export const versatilData = {
   // Marketing Metrics (VERSATIL specific)
   marketingMetrics: {
     title: "Marketing Performance Engine",
-    description: "Real-time insights into your content marketing performance powered by VERSATIL's intelligence.",
+    description: "Real-time insights into your content marketing performance with VERSATIL's intelligence.",
     metrics: [
       {
         label: "Brand Consistency Score",
