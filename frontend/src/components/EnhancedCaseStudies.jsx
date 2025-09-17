@@ -358,7 +358,7 @@ const EnhancedCaseStudies = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCase}
-            className={`grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 p-4 md:p-6 lg:p-8 border-2 ${
+            className={`p-4 md:p-6 lg:p-8 border-2 ${
               theme === 'dark' 
                 ? 'bg-gray-800/50 border-gray-700' 
                 : 'bg-white border-gray-200'
@@ -370,268 +370,276 @@ const EnhancedCaseStudies = () => {
             style={{ clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)' }}
           >
             
-            {/* Left Column - Details */}
-            <div className="space-y-6">
-              
-              {/* Header Card */}
-              <div className={`p-6 border-2 ${
-                theme === 'dark' ? 'border-purple-500/30 bg-purple-500/5' : 'border-purple-200 bg-purple-50'
-              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
-                <div className="flex flex-col md:flex-row items-start md:items-center space-y-3 md:space-y-0 md:space-x-4 mb-4">
-                  <TrustedBrandLogo 
-                    company={caseStudies[activeCase].company} 
-                    className="h-12 w-24 md:h-14 md:w-28" 
-                  />
-                  <div className="flex-1">
-                    <h3 className={`text-xl md:text-2xl font-black mb-2 ${
-                      theme === 'dark' ? 'text-white' : 'text-black'
-                    }`}>
-                      {caseStudies[activeCase].title}
-                    </h3>
-                    <p className={`text-sm font-bold mb-3 ${
-                      theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
-                    }`}>
-                      {caseStudies[activeCase].industry}
-                    </p>
-                    <p className={`text-sm md:text-base ${
-                      theme === 'dark' ? 'text-gray-200' : 'text-gray-700'
-                    } font-medium leading-relaxed`}>
-                      {caseStudies[activeCase].challenge}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Workflow Blueprint Card */}
-              <div className={`p-6 border-2 ${
-                theme === 'dark' ? 'border-blue-500/30 bg-blue-500/5' : 'border-blue-200 bg-blue-50'
-              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
-                <div className="flex items-center space-x-3 mb-5">
-                  <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
-                    theme === 'dark' ? 'border-blue-400 bg-blue-400/20' : 'border-blue-600 bg-blue-100'
-                  }`}>
-                    <span className={`text-sm font-black ${
-                      theme === 'dark' ? 'text-blue-300' : 'text-blue-600'
-                    }`}>1</span>
-                  </div>
-                  <h4 className={`text-base md:text-lg font-black ${
+            {/* Full Width Header Card */}
+            <div className={`p-6 mb-6 border-2 ${
+              theme === 'dark' ? 'border-purple-500/30 bg-purple-500/5' : 'border-purple-200 bg-purple-50'
+            }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+              <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+                <TrustedBrandLogo 
+                  company={caseStudies[activeCase].company} 
+                  className="h-16 w-32 md:h-20 md:w-40" 
+                />
+                <div className="flex-1">
+                  <h3 className={`text-2xl md:text-3xl lg:text-4xl font-black mb-3 ${
                     theme === 'dark' ? 'text-white' : 'text-black'
                   }`}>
-                    WORKFLOW BLUEPRINT
-                  </h4>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  {Object.entries(caseStudies[activeCase].workflow).map(([phase, details], index) => (
-                    <div
-                      key={phase}
-                      className={`p-4 border-2 transition-all duration-300 hover:scale-105 ${
-                        theme === 'dark' ? 'border-gray-600 bg-gray-800/50 hover:border-blue-500/50' : 'border-gray-300 bg-white hover:border-blue-300'
-                      }`}
-                      style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
-                    >
-                      <div className={`text-xs md:text-sm font-bold mb-2 ${
-                        theme === 'dark' ? 'text-blue-400' : 'text-blue-600'
-                      }`}>
-                        {details.title}
-                      </div>
-                      <div className={`text-xs mb-3 px-2 py-1 rounded ${
-                        theme === 'dark' ? 'text-gray-300 bg-gray-700' : 'text-gray-600 bg-gray-100'
-                      }`}>
-                        Duration: {details.duration}
-                      </div>
-                      <ul className="text-xs space-y-2">
-                        {details.tasks.map((task, i) => (
-                          <li key={i} className={`flex items-start space-x-2 ${
-                            theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
-                          }`}>
-                            <span className={`w-1.5 h-1.5 rounded-full mt-1.5 ${
-                              theme === 'dark' ? 'bg-blue-400' : 'bg-blue-600'
-                            }`}></span>
-                            <span>{task}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* KPIs Card */}
-              <div className={`p-6 border-2 ${
-                theme === 'dark' ? 'border-green-500/30 bg-green-500/5' : 'border-green-200 bg-green-50'
-              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
-                <div className="flex items-center space-x-3 mb-5">
-                  <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
-                    theme === 'dark' ? 'border-green-400 bg-green-400/20' : 'border-green-600 bg-green-100'
+                    {caseStudies[activeCase].title}
+                  </h3>
+                  <p className={`text-base font-bold mb-4 ${
+                    theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
                   }`}>
-                    <span className={`text-sm font-black ${
-                      theme === 'dark' ? 'text-green-300' : 'text-green-600'
-                    }`}>2</span>
-                  </div>
-                  <h4 className={`text-base md:text-lg font-black ${
-                    theme === 'dark' ? 'text-white' : 'text-black'
-                  }`}>
-                    KEY PERFORMANCE INDICATORS
-                  </h4>
-                </div>
-                <div className="space-y-3">
-                  {caseStudies[activeCase].kpis.map((kpi, index) => (
-                    <div
-                      key={index}
-                      className={`flex flex-col md:flex-row md:items-center md:justify-between p-4 border-2 transition-all duration-300 hover:scale-105 ${
-                        theme === 'dark' ? 'border-gray-600 bg-gray-800/50 hover:border-green-500/50' : 'border-gray-300 bg-white hover:border-green-300'
-                      }`}
-                      style={{ clipPath: 'polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%)' }}
-                    >
-                      <div className={`text-sm font-bold mb-2 md:mb-0 flex-1 ${
-                        theme === 'dark' ? 'text-white' : 'text-black'
-                      }`}>
-                        {kpi.metric}
-                      </div>
-                      <div className="flex items-center space-x-4">
-                        <div className={`text-sm px-3 py-1 rounded ${
-                          theme === 'dark' ? 'text-gray-200 bg-gray-700' : 'text-gray-600 bg-gray-100'
-                        }`}>
-                          {kpi.before} → {kpi.after}
-                        </div>
-                        <div className={`text-sm font-bold px-3 py-1 rounded ${
-                          theme === 'dark' ? 'text-green-300 bg-green-500/20' : 'text-green-700 bg-green-100'
-                        }`}>
-                          {kpi.improvement}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Business Impact Card */}
-              <div className={`p-6 border-2 ${
-                theme === 'dark' ? 'border-orange-500/30 bg-orange-500/5' : 'border-orange-200 bg-orange-50'
-              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
-                <div className="flex items-center space-x-3 mb-5">
-                  <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
-                    theme === 'dark' ? 'border-orange-400 bg-orange-400/20' : 'border-orange-600 bg-orange-100'
-                  }`}>
-                    <span className={`text-sm font-black ${
-                      theme === 'dark' ? 'text-orange-300' : 'text-orange-600'
-                    }`}>3</span>
-                  </div>
-                  <h4 className={`text-base md:text-lg font-black ${
-                    theme === 'dark' ? 'text-white' : 'text-black'
-                  }`}>
-                    BUSINESS IMPACT
-                  </h4>
-                </div>
-                <div className="grid grid-cols-1 gap-4">
-                  {Object.entries(caseStudies[activeCase].impact).map(([type, value], index) => (
-                    <div
-                      key={type}
-                      className={`p-4 border-l-4 transition-all duration-300 hover:scale-105 ${
-                        type === 'financial' 
-                          ? theme === 'dark' ? 'border-green-400 bg-green-500/10' : 'border-green-500 bg-green-50'
-                          : type === 'operational'
-                          ? theme === 'dark' ? 'border-blue-400 bg-blue-500/10' : 'border-blue-500 bg-blue-50'
-                          : theme === 'dark' ? 'border-purple-400 bg-purple-500/10' : 'border-purple-500 bg-purple-50'
-                      }`}
-                      style={{ clipPath: 'polygon(0 0, calc(100% - 5px) 0, 100% 100%, 5px 100%)' }}
-                    >
-                      <div className={`text-xs font-bold uppercase tracking-wider mb-2 flex items-center space-x-2 ${
-                        type === 'financial' 
-                          ? theme === 'dark' ? 'text-green-400' : 'text-green-600'
-                          : type === 'operational'
-                          ? theme === 'dark' ? 'text-blue-400' : 'text-blue-600'
-                          : theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
-                      }`}>
-                        <span className={`w-2 h-2 rounded-full ${
-                          type === 'financial' 
-                            ? theme === 'dark' ? 'bg-green-400' : 'bg-green-600'
-                            : type === 'operational'
-                            ? theme === 'dark' ? 'bg-blue-400' : 'bg-blue-600'
-                            : theme === 'dark' ? 'bg-purple-400' : 'bg-purple-600'
-                        }`}></span>
-                        <span>{type}</span>
-                      </div>
-                      <div className={`text-sm font-semibold leading-relaxed ${
-                        theme === 'dark' ? 'text-white' : 'text-black'
-                      }`}>
-                        {value}
-                      </div>
-                    </div>
-                  ))}
+                    {caseStudies[activeCase].industry}
+                  </p>
+                  <p className={`text-base md:text-lg ${
+                    theme === 'dark' ? 'text-gray-200' : 'text-gray-700'
+                  } font-medium leading-relaxed max-w-4xl`}>
+                    {caseStudies[activeCase].challenge}
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Performance Radar Card */}
-            <div className={`p-6 border-2 ${
-              theme === 'dark' ? 'border-purple-500/30 bg-purple-500/5' : 'border-purple-200 bg-purple-50'
-            }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+            {/* Two Column Layout */}
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
               
-              <div className="flex items-center space-x-3 mb-8">
-                <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
-                  theme === 'dark' ? 'border-purple-400 bg-purple-400/20' : 'border-purple-600 bg-purple-100'
-                }`}>
-                  <span className={`text-sm font-black ${
-                    theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
-                  }`}>4</span>
-                </div>
-                <h4 className={`text-base md:text-lg font-black text-center ${
-                  theme === 'dark' ? 'text-white' : 'text-black'
-                }`}>
-                  OKRs & PERFORMANCE RADAR
-                </h4>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="w-full max-w-sm md:max-w-none mb-6">
-                  <SpiderChart data={caseStudies[activeCase].okrs} size={280} />
-                </div>
+              {/* Left Column - Cards 1 & 2 */}
+              <div className="space-y-6">
                 
-                {/* Enhanced Legend */}
-                <div className={`w-full p-4 border-2 ${
-                  theme === 'dark' ? 'border-gray-600 bg-gray-800/30' : 'border-gray-300 bg-white'
-                }`} style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}>
-                  <div className="flex flex-wrap justify-center gap-6 text-sm">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-2 bg-red-500 rounded"></div>
-                      <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
-                        Before
-                      </span>
+                {/* Card 1: Workflow Blueprint */}
+                <div className={`p-6 border-2 ${
+                  theme === 'dark' ? 'border-blue-500/30 bg-blue-500/5' : 'border-blue-200 bg-blue-50'
+                }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+                  <div className="flex items-center space-x-3 mb-5">
+                    <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                      theme === 'dark' ? 'border-blue-400 bg-blue-400/20' : 'border-blue-600 bg-blue-100'
+                    }`}>
+                      <span className={`text-sm font-black ${
+                        theme === 'dark' ? 'text-blue-300' : 'text-blue-600'
+                      }`}>1</span>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-2 bg-green-500 rounded"></div>
-                      <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
-                        After
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-2 bg-purple-500 rounded border-2 border-dashed border-purple-400"></div>
-                      <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
-                        Target
-                      </span>
-                    </div>
+                    <h4 className={`text-base md:text-lg font-black ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      WORKFLOW BLUEPRINT
+                    </h4>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    {Object.entries(caseStudies[activeCase].workflow).map(([phase, details], index) => (
+                      <div
+                        key={phase}
+                        className={`p-4 border-2 transition-all duration-300 hover:scale-105 ${
+                          theme === 'dark' ? 'border-gray-600 bg-gray-800/50 hover:border-blue-500/50' : 'border-gray-300 bg-white hover:border-blue-300'
+                        }`}
+                        style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
+                      >
+                        <div className={`text-xs md:text-sm font-bold mb-2 ${
+                          theme === 'dark' ? 'text-blue-400' : 'text-blue-600'
+                        }`}>
+                          {details.title}
+                        </div>
+                        <div className={`text-xs mb-3 px-2 py-1 rounded ${
+                          theme === 'dark' ? 'text-gray-300 bg-gray-700' : 'text-gray-600 bg-gray-100'
+                        }`}>
+                          Duration: {details.duration}
+                        </div>
+                        <ul className="text-xs space-y-2">
+                          {details.tasks.map((task, i) => (
+                            <li key={i} className={`flex items-start space-x-2 ${
+                              theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                            }`}>
+                              <span className={`w-1.5 h-1.5 rounded-full mt-1.5 ${
+                                theme === 'dark' ? 'bg-blue-400' : 'bg-blue-600'
+                              }`}></span>
+                              <span>{task}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                
-                {/* Quick Stats Summary */}
-                <div className="mt-6 w-full">
-                  <div className="grid grid-cols-2 gap-3 text-center">
-                    <div className={`p-3 rounded ${
-                      theme === 'dark' ? 'bg-green-500/20 text-green-300' : 'bg-green-100 text-green-700'
+
+                {/* Card 2: KPIs */}
+                <div className={`p-6 border-2 ${
+                  theme === 'dark' ? 'border-green-500/30 bg-green-500/5' : 'border-green-200 bg-green-50'
+                }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+                  <div className="flex items-center space-x-3 mb-5">
+                    <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                      theme === 'dark' ? 'border-green-400 bg-green-400/20' : 'border-green-600 bg-green-100'
                     }`}>
-                      <div className="text-lg font-black">
-                        {Math.round(Object.values(caseStudies[activeCase].okrs).reduce((avg, item) => avg + item.after, 0) / Object.keys(caseStudies[activeCase].okrs).length)}%
-                      </div>
-                      <div className="text-xs font-bold">AVG AFTER</div>
+                      <span className={`text-sm font-black ${
+                        theme === 'dark' ? 'text-green-300' : 'text-green-600'
+                      }`}>2</span>
                     </div>
-                    <div className={`p-3 rounded ${
-                      theme === 'dark' ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-700'
+                    <h4 className={`text-base md:text-lg font-black ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
                     }`}>
-                      <div className="text-lg font-black">
-                        +{Math.round(Object.values(caseStudies[activeCase].okrs).reduce((avg, item) => avg + (item.after - item.before), 0) / Object.keys(caseStudies[activeCase].okrs).length)}%
+                      KEY PERFORMANCE INDICATORS
+                    </h4>
+                  </div>
+                  <div className="space-y-3">
+                    {caseStudies[activeCase].kpis.map((kpi, index) => (
+                      <div
+                        key={index}
+                        className={`flex flex-col md:flex-row md:items-center md:justify-between p-4 border-2 transition-all duration-300 hover:scale-105 ${
+                          theme === 'dark' ? 'border-gray-600 bg-gray-800/50 hover:border-green-500/50' : 'border-gray-300 bg-white hover:border-green-300'
+                        }`}
+                        style={{ clipPath: 'polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%)' }}
+                      >
+                        <div className={`text-sm font-bold mb-2 md:mb-0 flex-1 ${
+                          theme === 'dark' ? 'text-white' : 'text-black'
+                        }`}>
+                          {kpi.metric}
+                        </div>
+                        <div className="flex items-center space-x-4">
+                          <div className={`text-sm px-3 py-1 rounded ${
+                            theme === 'dark' ? 'text-gray-200 bg-gray-700' : 'text-gray-600 bg-gray-100'
+                          }`}>
+                            {kpi.before} → {kpi.after}
+                          </div>
+                          <div className={`text-sm font-bold px-3 py-1 rounded ${
+                            theme === 'dark' ? 'text-green-300 bg-green-500/20' : 'text-green-700 bg-green-100'
+                          }`}>
+                            {kpi.improvement}
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-xs font-bold">AVG IMPROVEMENT</div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - Cards 3 & 4 */}
+              <div className="space-y-6">
+                
+                {/* Card 3: Business Impact */}
+                <div className={`p-6 border-2 ${
+                  theme === 'dark' ? 'border-orange-500/30 bg-orange-500/5' : 'border-orange-200 bg-orange-50'
+                }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+                  <div className="flex items-center space-x-3 mb-5">
+                    <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                      theme === 'dark' ? 'border-orange-400 bg-orange-400/20' : 'border-orange-600 bg-orange-100'
+                    }`}>
+                      <span className={`text-sm font-black ${
+                        theme === 'dark' ? 'text-orange-300' : 'text-orange-600'
+                      }`}>3</span>
+                    </div>
+                    <h4 className={`text-base md:text-lg font-black ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      BUSINESS IMPACT
+                    </h4>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4">
+                    {Object.entries(caseStudies[activeCase].impact).map(([type, value], index) => (
+                      <div
+                        key={type}
+                        className={`p-4 border-l-4 transition-all duration-300 hover:scale-105 ${
+                          type === 'financial' 
+                            ? theme === 'dark' ? 'border-green-400 bg-green-500/10' : 'border-green-500 bg-green-50'
+                            : type === 'operational'
+                            ? theme === 'dark' ? 'border-blue-400 bg-blue-500/10' : 'border-blue-500 bg-blue-50'
+                            : theme === 'dark' ? 'border-purple-400 bg-purple-500/10' : 'border-purple-500 bg-purple-50'
+                        }`}
+                        style={{ clipPath: 'polygon(0 0, calc(100% - 5px) 0, 100% 100%, 5px 100%)' }}
+                      >
+                        <div className={`text-xs font-bold uppercase tracking-wider mb-2 flex items-center space-x-2 ${
+                          type === 'financial' 
+                            ? theme === 'dark' ? 'text-green-400' : 'text-green-600'
+                            : type === 'operational'
+                            ? theme === 'dark' ? 'text-blue-400' : 'text-blue-600'
+                            : theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
+                        }`}>
+                          <span className={`w-2 h-2 rounded-full ${
+                            type === 'financial' 
+                              ? theme === 'dark' ? 'bg-green-400' : 'bg-green-600'
+                              : type === 'operational'
+                              ? theme === 'dark' ? 'bg-blue-400' : 'bg-blue-600'
+                              : theme === 'dark' ? 'bg-purple-400' : 'bg-purple-600'
+                          }`}></span>
+                          <span>{type}</span>
+                        </div>
+                        <div className={`text-sm font-semibold leading-relaxed ${
+                          theme === 'dark' ? 'text-white' : 'text-black'
+                        }`}>
+                          {value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Card 4: Performance Radar */}
+                <div className={`p-6 border-2 ${
+                  theme === 'dark' ? 'border-purple-500/30 bg-purple-500/5' : 'border-purple-200 bg-purple-50'
+                }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+                  
+                  <div className="flex items-center space-x-3 mb-8">
+                    <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                      theme === 'dark' ? 'border-purple-400 bg-purple-400/20' : 'border-purple-600 bg-purple-100'
+                    }`}>
+                      <span className={`text-sm font-black ${
+                        theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
+                      }`}>4</span>
+                    </div>
+                    <h4 className={`text-base md:text-lg font-black ${
+                      theme === 'dark' ? 'text-white' : 'text-black'
+                    }`}>
+                      OKRs & PERFORMANCE RADAR
+                    </h4>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-full max-w-sm md:max-w-none mb-6">
+                      <SpiderChart data={caseStudies[activeCase].okrs} size={280} />
+                    </div>
+                    
+                    {/* Enhanced Legend */}
+                    <div className={`w-full p-4 border-2 ${
+                      theme === 'dark' ? 'border-gray-600 bg-gray-800/30' : 'border-gray-300 bg-white'
+                    }`} style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}>
+                      <div className="flex flex-wrap justify-center gap-6 text-sm">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-2 bg-red-500 rounded"></div>
+                          <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+                            Before
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-2 bg-green-500 rounded"></div>
+                          <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+                            After
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-3">
+                          <div className="w-4 h-2 bg-purple-500 rounded border-2 border-dashed border-purple-400"></div>
+                          <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+                            Target
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Quick Stats Summary */}
+                    <div className="mt-6 w-full">
+                      <div className="grid grid-cols-2 gap-3 text-center">
+                        <div className={`p-3 rounded ${
+                          theme === 'dark' ? 'bg-green-500/20 text-green-300' : 'bg-green-100 text-green-700'
+                        }`}>
+                          <div className="text-lg font-black">
+                            {Math.round(Object.values(caseStudies[activeCase].okrs).reduce((avg, item) => avg + item.after, 0) / Object.keys(caseStudies[activeCase].okrs).length)}%
+                          </div>
+                          <div className="text-xs font-bold">AVG AFTER</div>
+                        </div>
+                        <div className={`p-3 rounded ${
+                          theme === 'dark' ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-700'
+                        }`}>
+                          <div className="text-lg font-black">
+                            +{Math.round(Object.values(caseStudies[activeCase].okrs).reduce((avg, item) => avg + (item.after - item.before), 0) / Object.keys(caseStudies[activeCase].okrs).length)}%
+                          </div>
+                          <div className="text-xs font-bold">AVG IMPROVEMENT</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
