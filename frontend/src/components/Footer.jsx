@@ -285,7 +285,7 @@ const Footer = () => {
               <p className={`text-sm ${
                 theme === 'dark' ? 'text-gray-500' : 'text-gray-400'
               }`}>
-                © 2024 {versatilData.company.name} All rights reserved.
+                © {versatilData.company.name} All rights reserved.
               </p>
               {/* Powered by section removed per user request */}
             </div>
