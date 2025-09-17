@@ -278,7 +278,7 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">hello@versatil.ai</span>
+                <span className="text-sm">info@versatil.vc</span>
               </motion.div>
               <motion.div
                 className={`flex items-center space-x-3 ${
