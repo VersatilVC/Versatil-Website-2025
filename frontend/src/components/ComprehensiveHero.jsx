@@ -254,7 +254,7 @@ const ComprehensiveHero = () => {
                   </p>
                   
                   <motion.a
-                    href="https://app.versatil.vc/auth"
+                    href="https://cal.com/nissimmenashe/versatil"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`w-full px-4 py-3 rounded-xl font-semibold transition-all duration-300 inline-flex items-center justify-center ${
@@ -266,7 +266,7 @@ const ComprehensiveHero = () => {
                     whileTap={{ scale: 0.98 }}
                   >
                     <span className="flex items-center justify-center space-x-2">
-                      <span>{path.cta}</span>
+                      <span>Book Demo</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </motion.a>
