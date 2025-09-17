@@ -153,9 +153,9 @@ const EnhancedCaseStudies = () => {
               cy={center}
               r={radius * scale}
               fill="none"
-              stroke={theme === 'dark' ? '#374151' : '#D1D5DB'}
+              stroke={theme === 'dark' ? '#6B7280' : '#D1D5DB'}
               strokeWidth="1"
-              opacity="0.3"
+              opacity={theme === 'dark' ? '0.6' : '0.3'}
             />
           ))}
           
