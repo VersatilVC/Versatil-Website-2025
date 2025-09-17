@@ -3,7 +3,7 @@ import MotionWrapper from "../components/MotionWrapper";
 import ShoreditchHero from "../components/ShoreditchHero";
 import ShoreditchProblemSolution from "../components/ShoreditchProblemSolution";
 import WorkflowPlanArchitecture from "../components/WorkflowPlanArchitecture";
-import CaseStudiesSection from "../components/CaseStudiesSection";
+import EnhancedCaseStudies from "../components/EnhancedCaseStudies";
 import SimpleCTA from "../components/SimpleCTA";
 import Footer from "../components/Footer";
 
