@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { versatilData } from "../data/versatil-mock";
 import { 
@@ -13,6 +13,20 @@ import {
   ChevronUp
 } from "lucide-react";
 import { DNAIcon, RAGIcon, GraphIcon, BrandedSparkles } from "./BrandedIcons";
+
+// Smart popup descriptions for footer menu items
+const menuDescriptions = {
+  "Company DNA Analysis": "AI-powered analysis that extracts your company's unique DNA, values, and positioning to create authentic marketing content.",
+  "RAG Content Engine": "Retrieval Augmented Generation technology that combines your company data with AI to produce contextually accurate content.",
+  "Graph Neural Networks": "Advanced AI that maps relationships between your company elements to ensure consistent brand messaging across all content.",
+  "Performance Analytics": "Real-time insights and metrics that track content performance and optimize your marketing ROI continuously.",
+  "Brand Consistency AI": "Intelligent system that maintains your brand voice and messaging consistency across all marketing channels and content types.",
+  "About VERSATIL": "Learn about our mission to transform company DNA into powerful marketing content using cutting-edge AI technology.",
+  "Success Cases": "Discover how leading companies achieved 3x content velocity and 98% brand consistency with VERSATIL's AI platform.",
+  "DNA Technology": "Deep dive into our proprietary Company DNA extraction and content generation technology stack.",
+  "Contact": "Get in touch with our team for a personalized demo or to discuss your content marketing challenges.",
+  "Careers": "Join our team of AI researchers, engineers, and marketing technologists building the future of content creation."
+};
 
 const Footer = () => {
   const { theme } = useTheme();
