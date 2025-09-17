@@ -563,37 +563,77 @@ const EnhancedCaseStudies = () => {
               </div>
             </div>
 
-            {/* Right Column - Spider Chart */}
-            <div className="flex flex-col items-center justify-center">
-              <h4 className={`text-base md:text-lg font-black mb-6 md:mb-8 text-center ${
-                theme === 'dark' ? 'text-white' : 'text-black'
-              }`}>
-                OKRs & PERFORMANCE RADAR
-              </h4>
+            {/* Right Column - Performance Radar Card */}
+            <div className={`p-6 border-2 ${
+              theme === 'dark' ? 'border-purple-500/30 bg-purple-500/5' : 'border-purple-200 bg-purple-50'
+            }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
               
-              <div className="w-full max-w-sm md:max-w-none">
-                <SpiderChart data={caseStudies[activeCase].okrs} size={280} />
+              <div className="flex items-center space-x-3 mb-8">
+                <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                  theme === 'dark' ? 'border-purple-400 bg-purple-400/20' : 'border-purple-600 bg-purple-100'
+                }`}>
+                  <span className={`text-sm font-black ${
+                    theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
+                  }`}>4</span>
+                </div>
+                <h4 className={`text-base md:text-lg font-black text-center ${
+                  theme === 'dark' ? 'text-white' : 'text-black'
+                }`}>
+                  OKRs & PERFORMANCE RADAR
+                </h4>
               </div>
               
-              {/* Legend */}
-              <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-0.5 bg-red-500"></div>
-                  <span className={theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}>
-                    Before
-                  </span>
+              <div className="flex flex-col items-center">
+                <div className="w-full max-w-sm md:max-w-none mb-6">
+                  <SpiderChart data={caseStudies[activeCase].okrs} size={280} />
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-0.5 bg-green-500"></div>
-                  <span className={theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}>
-                    After
-                  </span>
+                
+                {/* Enhanced Legend */}
+                <div className={`w-full p-4 border-2 ${
+                  theme === 'dark' ? 'border-gray-600 bg-gray-800/30' : 'border-gray-300 bg-white'
+                }`} style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}>
+                  <div className="flex flex-wrap justify-center gap-6 text-sm">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-4 h-2 bg-red-500 rounded"></div>
+                      <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+                        Before
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-4 h-2 bg-green-500 rounded"></div>
+                      <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+                        After
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <div className="w-4 h-2 bg-purple-500 rounded border-2 border-dashed border-purple-400"></div>
+                      <span className={`font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}`}>
+                        Target
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-4 h-0.5 bg-purple-500 border-dashed"></div>
-                  <span className={theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}>
-                    Target
-                  </span>
+                
+                {/* Quick Stats Summary */}
+                <div className="mt-6 w-full">
+                  <div className="grid grid-cols-2 gap-3 text-center">
+                    <div className={`p-3 rounded ${
+                      theme === 'dark' ? 'bg-green-500/20 text-green-300' : 'bg-green-100 text-green-700'
+                    }`}>
+                      <div className="text-lg font-black">
+                        {Math.round(Object.values(caseStudies[activeCase].okrs).reduce((avg, item) => avg + item.after, 0) / Object.keys(caseStudies[activeCase].okrs).length)}%
+                      </div>
+                      <div className="text-xs font-bold">AVG AFTER</div>
+                    </div>
+                    <div className={`p-3 rounded ${
+                      theme === 'dark' ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-700'
+                    }`}>
+                      <div className="text-lg font-black">
+                        +{Math.round(Object.values(caseStudies[activeCase].okrs).reduce((avg, item) => avg + (item.after - item.before), 0) / Object.keys(caseStudies[activeCase].okrs).length)}%
+                      </div>
+                      <div className="text-xs font-bold">AVG IMPROVEMENT</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
