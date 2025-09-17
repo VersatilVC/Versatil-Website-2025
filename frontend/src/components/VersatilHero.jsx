@@ -267,8 +267,11 @@ const VersatilHero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              <motion.button
-                className={`group px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${
+              <motion.a
+                href="https://app.versatil.vc/auth"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group px-8 py-4 rounded-xl font-semibold transition-all duration-300 inline-flex items-center ${
                   theme === 'dark'
                     ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white'
                     : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white'
@@ -285,7 +288,7 @@ const VersatilHero = () => {
                     <ArrowRight className="w-5 h-5" />
                   </motion.div>
                 </span>
-              </motion.button>
+              </motion.a>
 
               <motion.button
                 className={`px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 ${
