@@ -40,9 +40,9 @@ const VersatilHero = () => {
   }, []);
 
   const technologyIcons = {
-    "Neural Analysis": Brain,
-    "Retrieval AI": Database,
-    "Relationship Modeling": Network,
+    "Neural Analysis": DNAIcon,
+    "Retrieval AI": RAGIcon,
+    "Relationship Modeling": GraphIcon,
     "Brand-Aligned AI": Edit3,
     "Optimization Engine": TrendingUp,
   };
