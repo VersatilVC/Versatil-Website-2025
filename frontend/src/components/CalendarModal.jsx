@@ -9,7 +9,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-[9999] flex items-center justify-center"
