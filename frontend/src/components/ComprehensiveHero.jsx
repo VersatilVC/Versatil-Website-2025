@@ -239,7 +239,7 @@ const ComprehensiveHero = () => {
                   whileHover={{ scale: 1.02, y: -5 }}
                   onClick={() => setSelectedPath(selectedPath === path.id ? null : path.id)}
                 >
-                  <div className="text-3xl mb-4">{path.icon}</div>
+                  <div className="flex items-center justify-center w-12 h-12 mb-4">{path.icon}</div>
                   <h3 className="text-lg font-bold mb-2">{path.title}</h3>
                   <p className={`text-sm mb-3 ${
                     theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
