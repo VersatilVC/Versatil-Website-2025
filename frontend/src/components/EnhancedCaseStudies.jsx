@@ -358,7 +358,7 @@ const EnhancedCaseStudies = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCase}
-            className={`grid lg:grid-cols-2 gap-12 p-8 border-2 ${
+            className={`grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 p-4 md:p-6 lg:p-8 border-2 ${
               theme === 'dark' 
                 ? 'bg-gray-800/50 border-gray-700' 
                 : 'bg-white border-gray-200'
