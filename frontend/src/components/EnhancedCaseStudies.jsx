@@ -402,38 +402,52 @@ const EnhancedCaseStudies = () => {
                 </div>
               </div>
 
-              {/* Workflow Blueprint */}
-              <div>
-                <h4 className={`text-base md:text-lg font-black mb-4 ${
-                  theme === 'dark' ? 'text-white' : 'text-black'
-                }`}>
-                  WORKFLOW BLUEPRINT
-                </h4>
-                <div className="grid grid-cols-2 gap-3 md:gap-4">
+              {/* Workflow Blueprint Card */}
+              <div className={`p-6 border-2 ${
+                theme === 'dark' ? 'border-blue-500/30 bg-blue-500/5' : 'border-blue-200 bg-blue-50'
+              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+                <div className="flex items-center space-x-3 mb-5">
+                  <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                    theme === 'dark' ? 'border-blue-400 bg-blue-400/20' : 'border-blue-600 bg-blue-100'
+                  }`}>
+                    <span className={`text-sm font-black ${
+                      theme === 'dark' ? 'text-blue-300' : 'text-blue-600'
+                    }`}>1</span>
+                  </div>
+                  <h4 className={`text-base md:text-lg font-black ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>
+                    WORKFLOW BLUEPRINT
+                  </h4>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
                   {Object.entries(caseStudies[activeCase].workflow).map(([phase, details], index) => (
                     <div
                       key={phase}
-                      className={`p-3 md:p-4 border ${
-                        theme === 'dark' ? 'border-gray-600 bg-gray-700/30' : 'border-gray-300 bg-gray-50'
+                      className={`p-4 border-2 transition-all duration-300 hover:scale-105 ${
+                        theme === 'dark' ? 'border-gray-600 bg-gray-800/50 hover:border-blue-500/50' : 'border-gray-300 bg-white hover:border-blue-300'
                       }`}
                       style={{ clipPath: 'polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%)' }}
                     >
                       <div className={`text-xs md:text-sm font-bold mb-2 ${
-                        theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
+                        theme === 'dark' ? 'text-blue-400' : 'text-blue-600'
                       }`}>
                         {details.title}
                       </div>
-                      <div className={`text-xs mb-2 ${
-                        theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                      <div className={`text-xs mb-3 px-2 py-1 rounded ${
+                        theme === 'dark' ? 'text-gray-300 bg-gray-700' : 'text-gray-600 bg-gray-100'
                       }`}>
                         Duration: {details.duration}
                       </div>
-                      <ul className="text-xs space-y-1">
+                      <ul className="text-xs space-y-2">
                         {details.tasks.map((task, i) => (
-                          <li key={i} className={`${
+                          <li key={i} className={`flex items-start space-x-2 ${
                             theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
                           }`}>
-                            • {task}
+                            <span className={`w-1.5 h-1.5 rounded-full mt-1.5 ${
+                              theme === 'dark' ? 'bg-blue-400' : 'bg-blue-600'
+                            }`}></span>
+                            <span>{task}</span>
                           </li>
                         ))}
                       </ul>
