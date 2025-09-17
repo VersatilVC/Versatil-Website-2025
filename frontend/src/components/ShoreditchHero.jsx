@@ -9,6 +9,7 @@ import { useCalendarModal } from "../hooks/useCalendarModal";
 const ShoreditchHero = () => {
   const { theme } = useTheme();
   const [typedText, setTypedText] = useState("");
+  const { isOpen, openCalendar, closeCalendar } = useCalendarModal();
   
   // Sniper-style messaging - direct, impactful, no fluff
   const taglines = [
