@@ -315,9 +315,9 @@ const Footer = () => {
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 >
-                  <Sparkles className={`w-4 h-4 ${
+                  <BrandedSparkles className={`w-4 h-4 ${
                     theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
-                  }`} />
+                  }`} color="currentColor" />
                 </motion.div>
                 <span className={`text-xs ${
                   theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
