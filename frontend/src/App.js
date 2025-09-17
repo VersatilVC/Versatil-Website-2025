@@ -31,6 +31,7 @@ function App() {
     <ThemeProvider>
       <div className="App">
         <BrowserRouter>
+          <Header />
           <AnimatedRoutes />
         </BrowserRouter>
       </div>
