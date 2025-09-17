@@ -2,7 +2,7 @@ import React from "react";
 import MotionWrapper from "../components/MotionWrapper";
 import NewHomepageHero from "../components/NewHomepageHero";
 import ProblemSolutionSection from "../components/ProblemSolutionSection";
-import VersatilBrainArchitecture from "../components/VersatilBrainArchitecture";
+import WorkflowPlanArchitecture from "../components/WorkflowPlanArchitecture";
 import CaseStudiesSection from "../components/CaseStudiesSection";
 import SimpleCTA from "../components/SimpleCTA";
 import Footer from "../components/Footer";
