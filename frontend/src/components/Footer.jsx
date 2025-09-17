@@ -10,12 +10,9 @@ import {
   Phone, 
   MapPin,
   ArrowUp,
-  Brain,
-  Database,
-  Network,
-  Sparkles,
   ChevronUp
 } from "lucide-react";
+import { DNAIcon, RAGIcon, GraphIcon, BrandedSparkles } from "./BrandedIcons";
 
 const Footer = () => {
   const { theme } = useTheme();
