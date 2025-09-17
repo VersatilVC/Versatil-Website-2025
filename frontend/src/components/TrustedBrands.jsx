@@ -1,101 +1,59 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-// Enhanced brand logo components with more professional styling
+// Enhanced brand logo components with real brand assets
 const BrandLogos = {
   "NVIDIA Inception": ({ className }) => (
     <div className={`${className} flex items-center justify-center`}>
-      <svg viewBox="0 0 140 40" className="w-full h-full">
-        <defs>
-          <linearGradient id="nvidiaGreen" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: "#76B900", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "#4A7C0B", stopOpacity: 1 }} />
-          </linearGradient>
-        </defs>
-        <rect x="2" y="8" width="20" height="24" rx="2" fill="url(#nvidiaGreen)" />
-        <text
-          x="28"
-          y="16"
-          className="fill-current text-sm font-bold"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          NVIDIA
-        </text>
-        <text
-          x="28"
-          y="28"
-          className="fill-current text-xs opacity-80"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          INCEPTION
-        </text>
-      </svg>
+      <img 
+        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/y036c4wu_20181218-Nvidia-Inception.png"
+        alt="NVIDIA Inception"
+        className="w-full h-full object-contain"
+        style={{ filter: 'brightness(0.8)' }}
+      />
     </div>
   ),
   
   "Google for Startups": ({ className }) => (
     <div className={`${className} flex items-center justify-center`}>
-      <svg viewBox="0 0 150 40" className="w-full h-full">
-        <defs>
-          <linearGradient id="googleBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: "#4285F4", stopOpacity: 1 }} />
-            <stop offset="25%" style={{ stopColor: "#EA4335", stopOpacity: 1 }} />
-            <stop offset="50%" style={{ stopColor: "#FBBC04", stopOpacity: 1 }} />
-            <stop offset="75%" style={{ stopColor: "#34A853", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "#4285F4", stopOpacity: 1 }} />
-          </linearGradient>
-        </defs>
-        <circle cx="12" cy="20" r="8" fill="url(#googleBlue)" />
-        <circle cx="12" cy="20" r="5" fill="white" />
-        <circle cx="12" cy="20" r="2" fill="url(#googleBlue)" />
-        <text
-          x="25"
-          y="16"
-          className="fill-current text-sm font-medium"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          Google
-        </text>
-        <text
-          x="25"
-          y="26"
-          className="fill-current text-xs opacity-75"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          for Startups
-        </text>
-      </svg>
+      <img 
+        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/jhrtw755_Logo_for_Google_for_Startups_page.png"
+        alt="Google for Startups"
+        className="w-full h-full object-contain"
+      />
     </div>
   ),
   
   "Cyabra": ({ className }) => (
     <div className={`${className} flex items-center justify-center`}>
-      <svg viewBox="0 0 100 40" className="w-full h-full">
-        <defs>
-          <linearGradient id="cyabraBlue" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: "#1E3A8A", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "#3B82F6", stopOpacity: 1 }} />
-          </linearGradient>
-        </defs>
-        <path
-          d="M8 10 C 8 10, 16 6, 16 20 C 16 34, 8 30, 8 30"
-          stroke="url(#cyabraBlue)"
-          strokeWidth="3"
-          fill="none"
-        />
-        <circle cx="8" cy="20" r="3" fill="url(#cyabraBlue)" />
-        <text
-          x="22"
-          y="24"
-          className="fill-current text-sm font-bold"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          Cyabra
-        </text>
-      </svg>
+      <img 
+        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/utdqns0q_Cyabra-Logo.svg"
+        alt="Cyabra"
+        className="w-full h-full object-contain"
+      />
     </div>
   ),
   
+  "Tuki.io": ({ className }) => (
+    <div className={`${className} flex items-center justify-center`}>
+      <img 
+        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/npw1vk7c_tuki_correnet.svg"
+        alt="Tuki.io"
+        className="w-full h-full object-contain"
+      />
+    </div>
+  ),
+
+  "VERSSAI": ({ className }) => (
+    <div className={`${className} flex items-center justify-center`}>
+      <img 
+        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/aav9nua8_VERSSAI_Logo_HORColor.png"
+        alt="VERSSAI"
+        className="w-full h-full object-contain"
+      />
+    </div>
+  ),
+
   "SolarWine.ai": ({ className }) => (
     <div className={`${className} flex items-center justify-center`}>
       <svg viewBox="0 0 120 40" className="w-full h-full">
@@ -122,59 +80,6 @@ const BrandLogos = {
           style={{ fontFamily: 'Arial, sans-serif' }}
         >
           .ai
-        </text>
-      </svg>
-    </div>
-  ),
-
-  "VERSSAI": ({ className }) => (
-    <div className={`${className} flex items-center justify-center`}>
-      <svg viewBox="0 0 100 40" className="w-full h-full">
-        <defs>
-          <linearGradient id="verssaiPurple" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: "#8B5CF6", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "#A855F7", stopOpacity: 1 }} />
-          </linearGradient>
-        </defs>
-        <polygon points="8,12 12,8 16,12 16,28 8,28" fill="url(#verssaiPurple)" />
-        <text
-          x="22"
-          y="24"
-          className="fill-current text-sm font-bold"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          VERSSAI
-        </text>
-      </svg>
-    </div>
-  ),
-
-  "Tuki.io": ({ className }) => (
-    <div className={`${className} flex items-center justify-center`}>
-      <svg viewBox="0 0 80 40" className="w-full h-full">
-        <defs>
-          <linearGradient id="tukiTeal" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: "#0891B2", stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: "#06B6D4", stopOpacity: 1 }} />
-          </linearGradient>
-        </defs>
-        <rect x="6" y="10" width="6" height="20" rx="3" fill="url(#tukiTeal)" />
-        <circle cx="18" cy="20" r="6" fill="url(#tukiTeal)" />
-        <text
-          x="28"
-          y="18"
-          className="fill-current text-sm font-medium"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          Tuki
-        </text>
-        <text
-          x="28"
-          y="28"
-          className="fill-current text-xs opacity-75"
-          style={{ fontFamily: 'Arial, sans-serif' }}
-        >
-          .io
         </text>
       </svg>
     </div>
