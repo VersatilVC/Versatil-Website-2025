@@ -285,7 +285,7 @@ const ComprehensiveHero = () => {
             <p className={`text-sm font-medium mb-4 ${
               theme === 'dark' ? 'text-gray-500' : 'text-gray-600'
             }`}>
-              Used by marketing teams from
+              Trusted by
             </p>
             <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-medium">
               {customerCompanies.map((company, index) => (
