@@ -176,8 +176,8 @@ const ShoreditchHero = () => {
               rel="noopener noreferrer"
               className={`group px-8 py-4 font-black text-lg transition-all duration-200 inline-flex items-center border-2 ${
                 theme === 'dark'
-                  ? 'bg-red-600 border-red-600 hover:bg-red-700 text-white'
-                  : 'bg-red-600 border-red-600 hover:bg-red-700 text-white'
+                  ? 'bg-purple-600 border-purple-600 hover:bg-purple-700 text-white'
+                  : 'bg-purple-600 border-purple-600 hover:bg-purple-700 text-white'
               } transform hover:scale-105 hover:rotate-1`}
               whileHover={{ scale: 1.05, rotate: 1 }}
               whileTap={{ scale: 0.95 }}
