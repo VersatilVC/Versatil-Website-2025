@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { ArrowRight, Zap, Target, Shield } from "lucide-react";
 import { TrustedBrandLogo } from "./TrustedBrands";
+import CalendarModal from "./CalendarModal";
+import { useCalendarModal } from "../hooks/useCalendarModal";
 
 const ShoreditchHero = () => {
   const { theme } = useTheme();
