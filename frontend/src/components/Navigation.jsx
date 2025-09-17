@@ -260,7 +260,10 @@ const Navigation = () => {
                 ))}
 
                 {/* Mobile CTA */}
-                <motion.button
+                <motion.a
+                  href="https://app.versatil.vc/auth"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`w-full flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold transition-all duration-300 ${
                     theme === 'dark'
                       ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
@@ -273,7 +276,7 @@ const Navigation = () => {
                 >
                   <BrandedSparkles className="w-5 h-5" color="currentColor" />
                   <span>Try VERSATIL</span>
-                </motion.button>
+                </motion.a>
 
                 {/* Technology Badges */}
                 <motion.div
