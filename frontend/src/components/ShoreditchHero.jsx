@@ -266,50 +266,88 @@ const ShoreditchHero = () => {
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {paths.map((path, index) => (
-              <motion.div
-                key={index}
-                className={`p-8 border-2 cursor-pointer transition-all duration-300 transform hover:scale-105 ${
-                  theme === 'dark' 
-                    ? 'bg-gray-900/50 border-gray-700 hover:border-' + path.color + '-500' 
-                    : 'bg-white border-gray-300 hover:border-' + path.color + '-500'
-                }`}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.6 + index * 0.2, duration: 0.6 }}
-                whileHover={{ y: -10, rotate: Math.random() > 0.5 ? 2 : -2 }}
-                style={{ clipPath: 'polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px))' }}
-              >
-                <div className={`flex items-center justify-center w-12 h-12 mb-4 border-2 border-${path.color}-500`}>
-                  <div className={`text-${path.color}-500`}>
-                    {path.icon}
-                  </div>
-                </div>
-                <h3 className={`text-xl font-black mb-2 ${
-                  theme === 'dark' ? 'text-white' : 'text-black'
-                }`}>
-                  {path.target}
-                </h3>
-                <p className={`text-sm mb-4 font-bold ${
-                  theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
-                }`}>
-                  {path.hook}
-                </p>
-                <motion.a
-                  href="https://cal.com/nissimmenashe/versatil"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-full px-4 py-3 font-bold text-sm transition-all duration-300 inline-flex items-center justify-center border-2 border-${path.color}-500 text-${path.color}-500 hover:bg-${path.color}-500 hover:text-white`}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+            {paths.map((path, index) => {
+              // Define color classes based on path.color
+              const getColorClasses = (color) => {
+                switch(color) {
+                  case 'purple':
+                    return {
+                      border: 'border-purple-500',
+                      hoverBorder: 'hover:border-purple-500',
+                      text: 'text-purple-500',
+                      hoverBg: 'hover:bg-purple-500'
+                    };
+                  case 'pink':
+                    return {
+                      border: 'border-pink-500',
+                      hoverBorder: 'hover:border-pink-500',
+                      text: 'text-pink-500',
+                      hoverBg: 'hover:bg-pink-500'
+                    };
+                  case 'indigo':
+                    return {
+                      border: 'border-indigo-500',
+                      hoverBorder: 'hover:border-indigo-500',
+                      text: 'text-indigo-500',
+                      hoverBg: 'hover:bg-indigo-500'
+                    };
+                  default:
+                    return {
+                      border: 'border-purple-500',
+                      hoverBorder: 'hover:border-purple-500',
+                      text: 'text-purple-500',
+                      hoverBg: 'hover:bg-purple-500'
+                    };
+                }
+              };
+              
+              const colorClasses = getColorClasses(path.color);
+              
+              return (
+                <motion.div
+                  key={index}
+                  className={`p-8 border-2 cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+                    theme === 'dark' 
+                      ? `bg-gray-900/50 border-gray-700 ${colorClasses.hoverBorder}` 
+                      : `bg-white border-gray-300 ${colorClasses.hoverBorder}`
+                  }`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.6 + index * 0.2, duration: 0.6 }}
+                  whileHover={{ y: -10, rotate: Math.random() > 0.5 ? 2 : -2 }}
+                  style={{ clipPath: 'polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px))' }}
                 >
-                  <span className="flex items-center justify-center space-x-2">
-                    <span>{path.action}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </motion.a>
-              </motion.div>
-            ))}
+                  <div className={`flex items-center justify-center w-12 h-12 mb-4 border-2 ${colorClasses.border}`}>
+                    <div className={colorClasses.text}>
+                      {path.icon}
+                    </div>
+                  </div>
+                  <h3 className={`text-xl font-black mb-2 ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>
+                    {path.target}
+                  </h3>
+                  <p className={`text-sm mb-4 font-bold ${
+                    theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
+                    {path.hook}
+                  </p>
+                  <motion.a
+                    href="https://cal.com/nissimmenashe/versatil"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full px-4 py-3 font-bold text-sm transition-all duration-300 inline-flex items-center justify-center border-2 ${colorClasses.border} ${colorClasses.text} ${colorClasses.hoverBg} hover:text-white`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="flex items-center justify-center space-x-2">
+                      <span>{path.action}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </motion.a>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
 
