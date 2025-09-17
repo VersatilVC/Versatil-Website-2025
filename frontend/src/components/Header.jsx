@@ -9,6 +9,7 @@ import { useCalendarModal } from "../hooks/useCalendarModal";
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+  const { isOpen, openCalendar, closeCalendar } = useCalendarModal();
 
   const isActive = (path) => {
     return location.pathname === path;
