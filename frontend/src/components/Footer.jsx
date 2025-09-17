@@ -211,7 +211,7 @@ const Footer = () => {
               transition={{ delay: 0.4, duration: 0.6 }}
             >
               {[
-                { icon: Linkedin, href: "https://linkedin.com/company/versatil-vc", label: "LinkedIn" },
+                { icon: Linkedin, href: "https://www.linkedin.com/company/versatilvc/", label: "LinkedIn" },
                 { icon: Mail, href: "mailto:info@versatil.vc", label: "Email" },
               ].map((social, index) => {
                 const IconComponent = social.icon;
