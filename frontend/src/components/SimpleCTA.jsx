@@ -71,8 +71,11 @@ const SimpleCTA = () => {
               </span>
             </motion.button>
 
-            <motion.button
-              className={`px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 ${
+            <motion.a
+              href="https://cal.com/nissimmenashe/versatil"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 inline-flex items-center ${
                 theme === 'dark'
                   ? 'border-purple-500 text-purple-400 hover:bg-purple-500/10'
                   : 'border-purple-600 text-purple-600 hover:bg-purple-50'
@@ -84,7 +87,7 @@ const SimpleCTA = () => {
                 <Calendar className="w-5 h-5" />
                 <span>Book Strategy Call</span>
               </span>
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           <motion.div
