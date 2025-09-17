@@ -169,7 +169,10 @@ const Navigation = () => {
             </motion.button>
 
             {/* CTA Button (Desktop) */}
-            <motion.button
+            <motion.a
+              href="https://app.versatil.vc/auth"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`hidden lg:flex items-center space-x-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
                 theme === 'dark'
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white'
