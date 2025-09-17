@@ -14,7 +14,7 @@ const ShoreditchPage = () => {
         <ShoreditchHero />
         <ShoreditchProblemSolution />
         <WorkflowPlanArchitecture />
-        <CaseStudiesSection />
+        <EnhancedCaseStudies />
         <SimpleCTA />
         <Footer />
       </div>
