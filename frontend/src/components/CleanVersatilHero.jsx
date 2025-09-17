@@ -135,8 +135,11 @@ const CleanVersatilHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2 }}
         >
-          <motion.button
-            className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${
+          <motion.a
+            href="https://cal.com/nissimmenashe/versatil"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 inline-flex items-center ${
               theme === 'dark'
                 ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white'
                 : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white'
@@ -145,10 +148,10 @@ const CleanVersatilHero = () => {
             whileTap={{ scale: 0.98 }}
           >
             <span className="flex items-center space-x-2">
-              <span>See Live Demo</span>
+              <span>Book Demo</span>
               <ArrowRight className="w-5 h-5" />
             </span>
-          </motion.button>
+          </motion.a>
 
           <motion.a
             href="https://cal.com/nissimmenashe/versatil"
