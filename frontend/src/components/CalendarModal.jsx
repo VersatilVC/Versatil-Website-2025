@@ -24,7 +24,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
         
         {/* Modal */}
         <motion.div
-          className={`relative w-full max-w-4xl h-[90vh] mx-4 border-2 ${
+          className={`relative w-full max-w-5xl h-[95vh] mx-4 border-2 flex flex-col ${
             theme === 'dark' 
               ? 'bg-gray-900 border-gray-700' 
               : 'bg-white border-gray-300'
