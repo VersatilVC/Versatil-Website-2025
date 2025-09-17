@@ -456,38 +456,49 @@ const EnhancedCaseStudies = () => {
                 </div>
               </div>
 
-              {/* KPIs Table */}
-              <div>
-                <h4 className={`text-base md:text-lg font-black mb-4 ${
-                  theme === 'dark' ? 'text-white' : 'text-black'
-                }`}>
-                  KEY PERFORMANCE INDICATORS
-                </h4>
+              {/* KPIs Card */}
+              <div className={`p-6 border-2 ${
+                theme === 'dark' ? 'border-green-500/30 bg-green-500/5' : 'border-green-200 bg-green-50'
+              }`} style={{ clipPath: 'polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%)' }}>
+                <div className="flex items-center space-x-3 mb-5">
+                  <div className={`w-8 h-8 rounded border-2 flex items-center justify-center ${
+                    theme === 'dark' ? 'border-green-400 bg-green-400/20' : 'border-green-600 bg-green-100'
+                  }`}>
+                    <span className={`text-sm font-black ${
+                      theme === 'dark' ? 'text-green-300' : 'text-green-600'
+                    }`}>2</span>
+                  </div>
+                  <h4 className={`text-base md:text-lg font-black ${
+                    theme === 'dark' ? 'text-white' : 'text-black'
+                  }`}>
+                    KEY PERFORMANCE INDICATORS
+                  </h4>
+                </div>
                 <div className="space-y-3">
                   {caseStudies[activeCase].kpis.map((kpi, index) => (
                     <div
                       key={index}
-                      className={`flex flex-col md:flex-row md:items-center md:justify-between p-3 border ${
-                        theme === 'dark' ? 'border-gray-500 bg-gray-700/50' : 'border-gray-300 bg-gray-50'
+                      className={`flex flex-col md:flex-row md:items-center md:justify-between p-4 border-2 transition-all duration-300 hover:scale-105 ${
+                        theme === 'dark' ? 'border-gray-600 bg-gray-800/50 hover:border-green-500/50' : 'border-gray-300 bg-white hover:border-green-300'
                       }`}
                       style={{ clipPath: 'polygon(3px 0, 100% 0, calc(100% - 3px) 100%, 0 100%)' }}
                     >
-                      <div className={`text-sm font-bold mb-2 md:mb-0 ${
+                      <div className={`text-sm font-bold mb-2 md:mb-0 flex-1 ${
                         theme === 'dark' ? 'text-white' : 'text-black'
                       }`}>
                         {kpi.metric}
                       </div>
                       <div className="flex items-center space-x-4">
-                        <span className={`text-sm ${
-                          theme === 'dark' ? 'text-gray-200' : 'text-gray-600'
+                        <div className={`text-sm px-3 py-1 rounded ${
+                          theme === 'dark' ? 'text-gray-200 bg-gray-700' : 'text-gray-600 bg-gray-100'
                         }`}>
                           {kpi.before} → {kpi.after}
-                        </span>
-                        <span className={`text-sm font-bold ${
-                          theme === 'dark' ? 'text-green-400' : 'text-green-600'
+                        </div>
+                        <div className={`text-sm font-bold px-3 py-1 rounded ${
+                          theme === 'dark' ? 'text-green-300 bg-green-500/20' : 'text-green-700 bg-green-100'
                         }`}>
                           {kpi.improvement}
-                        </span>
+                        </div>
                       </div>
                     </div>
                   ))}
