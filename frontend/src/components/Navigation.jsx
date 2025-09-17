@@ -280,9 +280,9 @@ const Navigation = () => {
                   transition={{ delay: 0.5 }}
                 >
                   {[
-                    { icon: Brain, label: "DNA AI", color: "purple" },
-                    { icon: Database, label: "RAG", color: "blue" },
-                    { icon: Network, label: "Graph", color: "green" },
+                    { icon: DNAIcon, label: "DNA AI", color: "purple" },
+                    { icon: RAGIcon, label: "RAG", color: "blue" },
+                    { icon: GraphIcon, label: "Graph", color: "green" },
                   ].map((tech, index) => {
                     const IconComponent = tech.icon;
                     return (
@@ -297,7 +297,7 @@ const Navigation = () => {
                         animate={{ scale: 1 }}
                         transition={{ delay: 0.6 + index * 0.1, type: "spring" }}
                       >
-                        <IconComponent className={`w-4 h-4 text-${tech.color}-500`} />
+                        <IconComponent className={`w-4 h-4 text-${tech.color}-500`} color="currentColor" />
                         <span className={`text-sm font-medium text-${tech.color}-500`}>
                           {tech.label}
                         </span>
