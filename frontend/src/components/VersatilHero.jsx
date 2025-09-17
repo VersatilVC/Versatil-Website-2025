@@ -149,9 +149,9 @@ const VersatilHero = () => {
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               >
-                <Sparkles className={`w-6 h-6 ${
+                <BrandedSparkles className={`w-6 h-6 ${
                   theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
-                }`} />
+                }`} color="currentColor" />
               </motion.div>
               <span className={`text-sm font-medium tracking-widest uppercase ${
                 theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
