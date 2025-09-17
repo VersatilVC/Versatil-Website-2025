@@ -114,15 +114,15 @@ const ShoreditchHero = () => {
           <motion.div
             className={`inline-flex items-center space-x-2 px-4 py-2 rounded-none border-2 mb-8 ${
               theme === 'dark'
-                ? 'border-red-500 bg-red-500/10 text-red-400'
-                : 'border-red-600 bg-red-100 text-red-800'
+                ? 'border-purple-500 bg-purple-500/10 text-purple-400'
+                : 'border-purple-600 bg-purple-100 text-purple-800'
             }`}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring" }}
           >
             <div className={`w-2 h-2 rounded-full animate-pulse ${
-              theme === 'dark' ? 'bg-red-400' : 'bg-red-600'
+              theme === 'dark' ? 'bg-purple-400' : 'bg-purple-600'
             }`} />
             <span className="font-mono text-sm font-bold tracking-wider">
               {typedText}
