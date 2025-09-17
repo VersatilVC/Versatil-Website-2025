@@ -9,7 +9,8 @@ import { useVideoModal } from "../hooks/useVideoModal";
 
 const SimpleCTA = () => {
   const { theme } = useTheme();
-  const { isOpen, openCalendar, closeCalendar } = useCalendarModal();
+  const { isOpen: isCalendarOpen, openCalendar, closeCalendar } = useCalendarModal();
+  const { isOpen: isVideoOpen, openVideo, closeVideo } = useVideoModal();
 
   return (
     <section className="py-20 relative overflow-hidden">
