@@ -160,7 +160,6 @@ export const newVersatilContent = {
       company: "Cyabra",
       title: "IPO-Ready Content & Communication Engine",
       objectives: [
-        { task: "Investor deck narratives", result: "14 decks, 0 delays" },
         { task: "Regulatory filing content", result: "98.7% compliance accuracy" },
         { task: "Media kit production", result: "3-day vs. 3-week turnaround" },
         { task: "Crisis communication prep", result: "47 pre-built responses" }
