@@ -1,5 +1,5 @@
 import React from "react";
-import { MotionWrapper } from "../components/MotionWrapper";
+import MotionWrapper from "../components/MotionWrapper";
 import NewHomepageHero from "../components/NewHomepageHero";
 import ProblemSolutionSection from "../components/ProblemSolutionSection";
 import VersatilBrainArchitecture from "../components/VersatilBrainArchitecture";
