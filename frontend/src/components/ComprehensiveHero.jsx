@@ -19,7 +19,7 @@ const ComprehensiveHero = () => {
   const userPaths = [
     {
       id: "executives",
-      icon: "🎯",
+      icon: <AnalyticsIcon className="w-8 h-8 text-purple-500" />,
       title: "For Executives",
       subtitle: "CEO • CMO • VP Marketing",
       focus: "ROI, competitive advantage, strategic impact",
@@ -27,7 +27,7 @@ const ComprehensiveHero = () => {
     },
     {
       id: "marketing",
-      icon: "⚡",
+      icon: <DNAIcon className="w-8 h-8 text-blue-500" />,
       title: "For Marketing Teams",
       subtitle: "Content Managers • Marketing Managers • Brand Teams",
       focus: "Workflow efficiency, quality control, daily operations",
@@ -35,7 +35,7 @@ const ComprehensiveHero = () => {
     },
     {
       id: "technical",
-      icon: "🔧",
+      icon: <WorkflowIcon className="w-8 h-8 text-green-500" />,
       title: "For Technical Leaders",
       subtitle: "CTO • Head of Growth • Technical Decision Makers",
       focus: "Architecture, security, integration capabilities",
