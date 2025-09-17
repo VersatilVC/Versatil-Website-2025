@@ -57,7 +57,7 @@ const BrandLogos = {
   "SolarWine.ai": ({ className }) => (
     <div className={`${className} flex items-center justify-center`}>
       <img 
-        src="https://customer-assets.emergentagent.com/job_versatil-engine/artifacts/5q4nbwfz_WhatsApp%20Image%202025-09-17%20at%2014.36.41.jpeg"
+        src="https://customer-assets.emergentagent.com/job_ai-orchestration-1/artifacts/k2xvubbg_SolarWine_Branding_NewTagline_Pos%203.png"
         alt="SolarWine.ai"
         className="w-full h-full object-contain"
       />
