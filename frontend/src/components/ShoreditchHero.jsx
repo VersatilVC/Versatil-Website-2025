@@ -325,11 +325,11 @@ const ShoreditchHero = () => {
           }`}>
             BATTLE-TESTED BY
           </p>
-          <div className="grid grid-cols-3 md:grid-cols-7 gap-4 opacity-75">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 opacity-75">
             {trustedCompanies.map((company, index) => (
               <motion.div
                 key={index}
-                className={`p-2 border ${
+                className={`p-4 border ${
                   theme === 'dark' ? 'border-gray-700' : 'border-gray-300'
                 } transition-all duration-300 hover:scale-105`}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -340,7 +340,7 @@ const ShoreditchHero = () => {
               >
                 <TrustedBrandLogo 
                   company={company} 
-                  className={`h-6 w-16 ${
+                  className={`h-12 w-24 ${
                     theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
                   }`}
                 />
