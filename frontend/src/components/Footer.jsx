@@ -292,7 +292,7 @@ const Footer = () => {
 
             <div className="flex items-center space-x-6">
               <a
-                href="#"
+                href="/privacy"
                 className={`text-sm transition-colors duration-300 ${
                   theme === 'dark' 
                     ? 'text-gray-500 hover:text-white' 
@@ -302,7 +302,7 @@ const Footer = () => {
                 Privacy Policy
               </a>
               <a
-                href="#"
+                href="/privacy"
                 className={`text-sm transition-colors duration-300 ${
                   theme === 'dark' 
                     ? 'text-gray-500 hover:text-white' 
