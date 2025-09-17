@@ -100,7 +100,7 @@ const ShoreditchHero = () => {
         }}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-12">
         
         {/* Shock & Awe Header */}
         <motion.div
