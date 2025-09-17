@@ -313,7 +313,7 @@ const VersatilHero = () => {
             >
               {[
                 { label: "Brand Consistency", value: "98%", icon: ShieldCheck, color: "purple" },
-                { label: "Content Velocity", value: "247/week", icon: Zap, color: "blue" },
+                { label: "Content Velocity", value: "247/week", icon: WorkflowIcon, color: "blue" },
                 { label: "Engagement Lift", value: "+340%", icon: TrendingUp, color: "green" },
               ].map((metric, index) => {
                 const IconComponent = metric.icon;
