@@ -158,16 +158,17 @@ export const newVersatilContent = {
   caseStudies: [
     {
       company: "Cyabra",
-      title: "IPO-Ready Content & Communication Engine",
+      title: "Content Marketing Engine for Education & Awareness",
       objectives: [
-        { task: "Regulatory filing content", result: "98.7% compliance accuracy" },
-        { task: "Media kit production", result: "3-day vs. 3-week turnaround" },
-        { task: "Crisis communication prep", result: "47 pre-built responses" }
+        { task: "Educational content creation", result: "Content marketing engine deployed" },
+        { task: "Awareness campaign materials", result: "Multi-channel content derivatives" },
+        { task: "Brand consistency across platforms", result: "98.7% voice accuracy" },
+        { task: "Audience education resources", result: "Comprehensive content library" }
       ],
       metrics: [
-        { metric: "Content cycle", improvement: "21 days → 3 days (-86%)" },
-        { metric: "Executive approval", improvement: "89% first-draft acceptance" },
-        { metric: "Brand consistency", improvement: "67% → 96% maintained at scale" }
+        { metric: "Content production velocity", improvement: "5x faster turnaround" },
+        { metric: "Educational engagement", improvement: "89% audience comprehension" },
+        { metric: "Brand awareness lift", improvement: "67% → 96% consistency maintained" }
       ]
     },
     {
