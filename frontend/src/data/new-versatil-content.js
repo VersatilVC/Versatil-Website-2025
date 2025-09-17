@@ -158,32 +158,44 @@ export const newVersatilContent = {
   caseStudies: [
     {
       company: "Cyabra",
-      title: "Content Marketing Engine for Education & Awareness",
+      title: "IPO-Ready Communication",
       objectives: [
-        { task: "Educational content creation", result: "Content marketing engine deployed" },
-        { task: "Awareness campaign materials", result: "Multi-channel content derivatives" },
-        { task: "Brand consistency across platforms", result: "98.7% voice accuracy" },
-        { task: "Audience education resources", result: "Comprehensive content library" }
+        { task: "Content cycle optimization", result: "3-week cycles → 3-day sprints" },
+        { task: "Regulatory compliance accuracy", result: "98.7% compliance maintained" },
+        { task: "Executive communication prep", result: "Zero delays in critical updates" }
       ],
       metrics: [
-        { metric: "Content production velocity", improvement: "5x faster turnaround" },
-        { metric: "Educational engagement", improvement: "89% audience comprehension" },
-        { metric: "Brand awareness lift", improvement: "67% → 96% consistency maintained" }
+        { metric: "Content production velocity", improvement: "3 weeks → 3 days (-86%)" },
+        { metric: "Compliance accuracy", improvement: "98.7% maintained at scale" },
+        { metric: "Executive approval rate", improvement: "First-draft acceptance 94%" }
+      ]
+    },
+    {
+      company: "VERSS.AI",
+      title: "VC Fund Operations",
+      objectives: [
+        { task: "LP reporting optimization", result: "21 days → 5 days turnaround" },
+        { task: "Data accuracy validation", result: "99.3% accuracy maintained" },
+        { task: "Investment memo automation", result: "Automated research & analysis" }
+      ],
+      metrics: [
+        { metric: "LP reporting cycles", improvement: "21 days → 5 days (-76%)" },
+        { metric: "Data accuracy", improvement: "99.3% maintained" },
+        { metric: "Research efficiency", improvement: "Manual → automated workflows" }
       ]
     },
     {
       company: "SolarWine.ai",
-      title: "Market Research Intelligence Engine",
+      title: "Market Intelligence",
       objectives: [
-        { task: "Competitive analysis", result: "89 competitors mapped" },
-        { task: "TAM/SAM sizing", result: "$2.3B TAM identified" },
-        { task: "Customer personas", result: "7 distinct buyer profiles" },
-        { task: "GTM content", result: "34 assets, 5 languages" }
+        { task: "Market research acceleration", result: "28 days → 4 days cycles" },
+        { task: "TAM analysis automation", result: "$2.3B TAM identified" },
+        { task: "Competitive intelligence", result: "Real-time market insights" }
       ],
       metrics: [
         { metric: "Research cycles", improvement: "28 days → 4 days (-86%)" },
-        { metric: "Data accuracy", improvement: "91.2% cross-source verification" },
-        { metric: "Market entry speed", improvement: "6 months → 2.5 months (-58%)" }
+        { metric: "Market opportunity", improvement: "$2.3B TAM identified" },
+        { metric: "Intelligence accuracy", improvement: "Real-time competitive data" }
       ]
     }
   ],
