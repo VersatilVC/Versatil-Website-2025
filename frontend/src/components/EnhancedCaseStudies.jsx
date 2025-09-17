@@ -520,31 +520,33 @@ const EnhancedCaseStudies = () => {
 
             {/* Right Column - Spider Chart */}
             <div className="flex flex-col items-center justify-center">
-              <h4 className={`text-lg font-black mb-8 text-center ${
+              <h4 className={`text-base md:text-lg font-black mb-6 md:mb-8 text-center ${
                 theme === 'dark' ? 'text-white' : 'text-black'
               }`}>
                 OKRs & PERFORMANCE RADAR
               </h4>
               
-              <SpiderChart data={caseStudies[activeCase].okrs} size={300} />
+              <div className="w-full max-w-sm md:max-w-none">
+                <SpiderChart data={caseStudies[activeCase].okrs} size={280} />
+              </div>
               
               {/* Legend */}
-              <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm">
+              <div className="mt-6 md:mt-8 flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-0.5 bg-red-500"></div>
-                  <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
+                  <span className={theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}>
                     Before
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-0.5 bg-green-500"></div>
-                  <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
+                  <span className={theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}>
                     After
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <div className="w-4 h-0.5 bg-purple-500 border-dashed"></div>
-                  <span className={theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}>
+                  <span className={theme === 'dark' ? 'text-gray-200' : 'text-gray-700'}>
                     Target
                   </span>
                 </div>
