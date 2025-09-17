@@ -70,7 +70,7 @@ const SimpleCTA = () => {
             >
               <span className="flex items-center space-x-2">
                 <Play className="w-5 h-5" />
-                <span>Watch 2-min Demo</span>
+                <span>Watch Short Demo</span>
               </span>
             </motion.button>
 
