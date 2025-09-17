@@ -30,8 +30,7 @@ const CaseStudiesSection = () => {
   const getCompanyIcon = (company) => {
     const icons = {
       'Cyabra': Building2,
-      'SolarWine.ai': Target,
-      'Hyro.ai': BarChart3
+      'SolarWine.ai': Target
     };
     return icons[company] || Building2;
   };
