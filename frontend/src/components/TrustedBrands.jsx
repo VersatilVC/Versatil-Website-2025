@@ -110,7 +110,7 @@ const DefaultBrandLogo = ({ company, className }) => (
 );
 
 // Main component with enhanced styling
-export const TrustedBrandLogo = ({ company, className = "h-16 w-32" }) => {
+export const TrustedBrandLogo = ({ company, className = "h-12 w-24" }) => {
   const LogoComponent = BrandLogos[company];
   
   return LogoComponent ? (
