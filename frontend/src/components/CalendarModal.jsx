@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
+import { BookerEmbed } from "@calcom/atoms";
 
 const CalendarModal = ({ isOpen, onClose }) => {
   const { theme } = useTheme();
