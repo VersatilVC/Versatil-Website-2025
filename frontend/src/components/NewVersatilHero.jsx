@@ -248,7 +248,7 @@ const NewVersatilHero = () => {
             <p className={`text-lg font-medium mb-6 ${
               theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
             }`}>
-              Used by marketing teams from
+              Trusted by
             </p>
             <div className="flex flex-wrap justify-center items-center gap-6 text-lg font-semibold">
               {newVersatilContent.customerCompanies.map((company, index) => (
