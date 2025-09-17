@@ -24,7 +24,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
         
         {/* Modal */}
         <motion.div
-          className={`relative w-full max-w-5xl h-[95vh] mx-4 border-2 flex flex-col ${
+          className={`relative w-full max-w-5xl h-[95vh] mx-2 md:mx-4 border-2 flex flex-col ${
             theme === 'dark' 
               ? 'bg-gray-900 border-gray-700' 
               : 'bg-white border-gray-300'
@@ -34,7 +34,7 @@ const CalendarModal = ({ isOpen, onClose }) => {
           exit={{ scale: 0.9, opacity: 0 }}
           transition={{ type: "spring", duration: 0.3 }}
           onClick={(e) => e.stopPropagation()}
-          style={{ clipPath: 'polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)' }}
+          style={{ clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)' }}
         >
           {/* Header */}
           <div className={`flex items-center justify-between p-4 border-b-2 flex-shrink-0 ${
