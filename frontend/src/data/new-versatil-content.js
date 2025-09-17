@@ -52,8 +52,8 @@ export const newVersatilContent = {
 
   // Customer companies
   customerCompanies: [
-    "Cyabra", "Hyro", "SolarWine.ai", "Tuki.io", "NVIDIA Inception", 
-    "Sweetwood", "VERSSAI", "IATI", "Google for Startups"
+    "Cyabra", "SolarWine.ai", "Tuki.io", "NVIDIA Inception", 
+    "Sweetwood", "VERSSAI", "IATI", "Google for Startups", "Anthropic"
   ],
 
   // Scaling gap problem
