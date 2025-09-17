@@ -252,8 +252,11 @@ const ComprehensiveHero = () => {
                     <strong>Focus</strong>: {path.focus}
                   </p>
                   
-                  <motion.button
-                    className={`w-full px-4 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  <motion.a
+                    href="https://app.versatil.vc/auth"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full px-4 py-3 rounded-xl font-semibold transition-all duration-300 inline-flex items-center justify-center ${
                       theme === 'dark'
                         ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white'
                         : 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white'
@@ -265,7 +268,7 @@ const ComprehensiveHero = () => {
                       <span>{path.cta}</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
-                  </motion.button>
+                  </motion.a>
                 </motion.div>
               ))}
             </div>
