@@ -288,20 +288,25 @@ const ComprehensiveHero = () => {
             }`}>
               Trusted by
             </p>
-            <div className="flex flex-wrap justify-center items-center gap-4 text-sm font-medium">
+            <div className="flex flex-wrap justify-center items-center gap-6 opacity-75">
               {customerCompanies.map((company, index) => (
-                <motion.span
+                <motion.div
                   key={index}
-                  className={`${
-                    theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
-                  } hover:text-purple-500 transition-colors cursor-pointer`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.6 + index * 0.05 }}
-                  whileHover={{ scale: 1.05 }}
+                  className={`transition-all duration-300 ${
+                    theme === 'dark' ? 'text-gray-400 hover:text-gray-200' : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.5 + index * 0.1 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                 >
-                  {company}
-                </motion.span>
+                  <TrustedBrandLogo 
+                    company={company} 
+                    className={`h-8 w-20 ${
+                      theme === 'dark' ? 'text-gray-400' : 'text-gray-600'
+                    }`}
+                  />
+                </motion.div>
               ))}
             </div>
           </motion.div>
