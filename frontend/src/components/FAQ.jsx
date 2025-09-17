@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { versatilData } from "../data/versatil-mock";
-import { Plus, Minus, Brain, Database, Network, HelpCircle } from "lucide-react";
+import { Plus, Minus, HelpCircle } from "lucide-react";
+import { DNAIcon, RAGIcon, GraphIcon } from "./BrandedIcons";
 
 const FAQ = () => {
   const { theme } = useTheme();
