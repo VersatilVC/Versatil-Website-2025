@@ -230,7 +230,7 @@ const EnhancedCaseStudies = () => {
               <div
                 key={key}
                 className={`absolute text-xs font-semibold ${
-                  theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                  theme === 'dark' ? 'text-gray-100' : 'text-gray-700'
                 }`}
                 style={{
                   left: x - 30,
