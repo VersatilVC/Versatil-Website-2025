@@ -140,10 +140,16 @@ const ShoreditchHero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             style={{ fontFamily: 'Arial Black, sans-serif' }}
           >
-            VERSATIL
+            Built for
             <br />
             <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
-              KILLS SLOW
+              MARKETERS
+            </span>
+            <br />
+            <span className={`text-3xl md:text-4xl lg:text-5xl ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+              adopted by CEOs & CMOs
             </span>
           </motion.h1>
 
