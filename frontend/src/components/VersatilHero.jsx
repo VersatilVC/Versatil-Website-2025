@@ -3,18 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { versatilData } from "../data/versatil-mock";
 import {
-  Brain,
-  Database,
-  Network,
   Edit3,
   TrendingUp,
-  Zap,
   ShieldCheck,
   ArrowRight,
-  Sparkles,
-  Target,
   BarChart3
 } from "lucide-react";
+import { DNAIcon, RAGIcon, GraphIcon, BrandedSparkles, WorkflowIcon, AnalyticsIcon, ContentIcon } from "./BrandedIcons";
 
 const VersatilHero = () => {
   const { theme } = useTheme();
