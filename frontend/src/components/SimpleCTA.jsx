@@ -116,7 +116,10 @@ const SimpleCTA = () => {
       </div>
       
       {/* Calendar Modal */}
-      <CalendarModal isOpen={isOpen} onClose={closeCalendar} />
+      <CalendarModal isOpen={isCalendarOpen} onClose={closeCalendar} />
+      
+      {/* Video Modal */}
+      <VideoModal isOpen={isVideoOpen} onClose={closeVideo} />
     </section>
   );
 };
