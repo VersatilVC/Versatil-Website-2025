@@ -218,11 +218,22 @@ const VersatilHero = () => {
               transition={{ delay: 0.5 }}
             >
               {[
-                { icon: Brain, label: "DNA AI", color: "purple" },
-                { icon: Database, label: "RAG", color: "blue" },
-                { icon: Network, label: "Graph", color: "green" },
+                { 
+                  icon: "https://customer-assets.emergentagent.com/job_scene-capture/artifacts/goqdgm6n_Screenshot%202025-09-15%20at%2013.50.53.png", 
+                  label: "DNA AI", 
+                  color: "purple" 
+                },
+                { 
+                  icon: "https://customer-assets.emergentagent.com/job_scene-capture/artifacts/ab9b24du_Screenshot%202025-09-15%20at%2013.51.05.png", 
+                  label: "RAG", 
+                  color: "blue" 
+                },
+                { 
+                  icon: "https://customer-assets.emergentagent.com/job_scene-capture/artifacts/ybtsz8ur_Screenshot%202025-09-15%20at%2013.51.30.png", 
+                  label: "Graph", 
+                  color: "green" 
+                },
               ].map((tech, index) => {
-                const IconComponent = tech.icon;
                 return (
                   <motion.div
                     key={index}
@@ -243,7 +254,9 @@ const VersatilHero = () => {
                       boxShadow: { duration: 2, repeat: Infinity, delay: index * 0.7 }
                     }}
                   >
-                    <IconComponent className={`w-4 h-4 text-${tech.color}-500`} />
+                    <div className={`w-6 h-6 rounded bg-${tech.color}-500/20 flex items-center justify-center`}>
+                      <div className={`w-3 h-3 rounded bg-${tech.color}-500`} />
+                    </div>
                     <span className={`text-sm font-medium text-${tech.color}-500`}>
                       {tech.label}
                     </span>
