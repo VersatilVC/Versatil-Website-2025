@@ -23,28 +23,28 @@ const ShoreditchHero = () => {
     { number: "99.2", unit: "%", label: "ACCURACY", change: "ENTERPRISE" }
   ];
 
-  // Power user paths - direct language
+  // Power user paths - direct language with VERSATIL colors
   const paths = [
     {
       target: "C-SUITE",
       hook: "ROI. COMPETITIVE EDGE. DONE.",
       action: "GET EXECUTIVE BRIEF",
       icon: <Target className="w-6 h-6" />,
-      color: "red"
+      color: "purple"
     },
     {
       target: "MARKETING",
       hook: "WORKFLOW. QUALITY. SCALE.",
       action: "SEE LIVE DEMO",
       icon: <Zap className="w-6 h-6" />,
-      color: "yellow"
+      color: "pink"
     },
     {
       target: "TECHNICAL",
       hook: "ARCHITECTURE. SECURITY. INTEGRATION.",
       action: "TECHNICAL DEEP DIVE",
       icon: <Shield className="w-6 h-6" />,
-      color: "green"
+      color: "indigo"
     }
   ];
 
