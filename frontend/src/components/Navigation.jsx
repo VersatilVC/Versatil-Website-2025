@@ -99,8 +99,8 @@ const Navigation = () => {
           {/* Technology Stack Icons */}
           <div className="hidden lg:flex items-center space-x-4">
             {[
-              { icon: Database, label: "RAG", color: "blue" },
-              { icon: Network, label: "Graph", color: "green" },
+              { icon: RAGIcon, label: "RAG", color: "blue" },
+              { icon: GraphIcon, label: "Graph", color: "green" },
             ].map((tech, index) => {
               const IconComponent = tech.icon;
               return (
@@ -124,7 +124,7 @@ const Navigation = () => {
                   }}
                   title={tech.label}
                 >
-                  <IconComponent className={`w-5 h-5 text-${tech.color}-500`} />
+                  <IconComponent className={`w-5 h-5 text-${tech.color}-500`} color="currentColor" />
                 </motion.div>
               );
             })}
