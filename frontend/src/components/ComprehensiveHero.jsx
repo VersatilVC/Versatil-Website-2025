@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import { BrandedSparkles, DNAIcon, WorkflowIcon, AnalyticsIcon } from "./BrandedIcons";
+import { TrustedBrandLogo } from "./TrustedBrands";
 
 const ComprehensiveHero = () => {
   const { theme } = useTheme();
