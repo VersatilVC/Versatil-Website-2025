@@ -188,7 +188,7 @@ const Navigation = () => {
                 <BrandedSparkles className="w-5 h-5" color="currentColor" />
               </motion.div>
               <span>Try VERSATIL</span>
-            </motion.button>
+            </motion.a>
 
             {/* Mobile Menu Toggle */}
             <motion.button
