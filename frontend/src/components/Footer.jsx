@@ -287,21 +287,7 @@ const Footer = () => {
               }`}>
                 © 2024 {versatilData.company.name} All rights reserved.
               </p>
-              <div className="flex items-center space-x-2">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                >
-                  <BrandedSparkles className={`w-4 h-4 ${
-                    theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
-                  }`} color="currentColor" />
-                </motion.div>
-                <span className={`text-xs ${
-                  theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
-                } font-medium`}>
-                  Powered by Company DNA Technology
-                </span>
-              </div>
+              {/* Powered by section removed per user request */}
             </div>
 
             <div className="flex items-center space-x-6">
