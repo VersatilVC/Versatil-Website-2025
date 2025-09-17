@@ -8,6 +8,11 @@ import { BookerEmbed } from "@calcom/atoms";
 const CalendarModal = ({ isOpen, onClose }) => {
   const { theme } = useTheme();
 
+  // Extract username and eventSlug from cal.com URL
+  // https://cal.com/nissimmenashe/versatil
+  const calUsername = "nissimmenashe";
+  const eventSlug = "versatil";
+
   if (!isOpen) return null;
 
   return createPortal(
