@@ -375,27 +375,27 @@ const EnhancedCaseStudies = () => {
               
               {/* Header */}
               <div>
-                <div className="flex items-center space-x-4 mb-4">
+                <div className="flex flex-col md:flex-row items-start md:items-center space-y-3 md:space-y-0 md:space-x-4 mb-4">
                   <TrustedBrandLogo 
                     company={caseStudies[activeCase].company} 
-                    className="h-12 w-24" 
+                    className="h-10 w-20 md:h-12 md:w-24" 
                   />
                   <div>
-                    <h3 className={`text-2xl font-black ${
+                    <h3 className={`text-xl md:text-2xl font-black ${
                       theme === 'dark' ? 'text-white' : 'text-black'
                     }`}>
                       {caseStudies[activeCase].title}
                     </h3>
                     <p className={`text-sm font-bold ${
-                      theme === 'dark' ? 'text-purple-400' : 'text-purple-600'
+                      theme === 'dark' ? 'text-purple-300' : 'text-purple-600'
                     }`}>
                       {caseStudies[activeCase].industry}
                     </p>
                   </div>
                 </div>
                 
-                <p className={`${
-                  theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+                <p className={`text-sm md:text-base ${
+                  theme === 'dark' ? 'text-gray-200' : 'text-gray-700'
                 } font-medium`}>
                   {caseStudies[activeCase].challenge}
                 </p>
