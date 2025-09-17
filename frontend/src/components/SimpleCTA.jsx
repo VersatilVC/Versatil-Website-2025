@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
 import { ArrowRight, Calendar, Play } from "lucide-react";
+import CalendarModal from "./CalendarModal";
+import { useCalendarModal } from "../hooks/useCalendarModal";
 
 const SimpleCTA = () => {
   const { theme } = useTheme();
