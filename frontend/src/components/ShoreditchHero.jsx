@@ -179,10 +179,8 @@ const ShoreditchHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            <motion.a
-              href="https://cal.com/nissimmenashe/versatil"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={openCalendar}
               className={`group px-8 py-4 font-black text-lg transition-all duration-200 inline-flex items-center border-2 ${
                 theme === 'dark'
                   ? 'bg-purple-600 border-purple-600 hover:bg-purple-700 text-white'
@@ -196,7 +194,7 @@ const ShoreditchHero = () => {
                 <span>BOOK DEMO NOW</span>
                 <ArrowRight className="w-5 h-5" />
               </span>
-            </motion.a>
+            </motion.button>
 
             <motion.a
               href="https://app.versatil.vc/auth"
