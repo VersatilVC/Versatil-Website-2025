@@ -3,6 +3,8 @@ import { Button } from "./ui/button";
 import { Globe, Sun, Moon } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLocation, Link } from "react-router-dom";
+import CalendarModal from "./CalendarModal";
+import { useCalendarModal } from "../hooks/useCalendarModal";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
