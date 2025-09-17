@@ -67,25 +67,15 @@ const CalendarModal = ({ isOpen, onClose }) => {
             </motion.button>
           </div>
 
-          {/* Calendar BookerEmbed */}
+          {/* Calendar Iframe */}
           <div className="flex-1 p-6">
-            <div className="w-full h-full rounded-lg overflow-hidden">
-              <BookerEmbed
-                eventSlug={eventSlug}
-                view="week_view"
-                username={calUsername}
-                customClassNames={{
-                  bookerContainer: `border-2 rounded-lg h-full ${
-                    theme === 'dark' ? 'border-gray-600' : 'border-gray-300'
-                  }`,
-                }}
-                onCreateBookingSuccess={() => {
-                  console.log("Booking created successfully - VERSATIL Demo");
-                  // Optionally close modal after successful booking
-                  // onClose();
-                }}
-              />
-            </div>
+            <iframe
+              src="https://cal.com/nissimmenashe/versatil"
+              className="w-full h-full rounded-lg border-2 border-gray-300"
+              frameBorder="0"
+              title="Book a Demo - VERSATIL Calendar"
+              allow="camera; microphone; geolocation; clipboard-read; clipboard-write"
+            />
           </div>
         </motion.div>
       </motion.div>
