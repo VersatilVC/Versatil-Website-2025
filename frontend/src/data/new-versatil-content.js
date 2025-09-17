@@ -185,21 +185,6 @@ export const newVersatilContent = {
         { metric: "Data accuracy", improvement: "91.2% cross-source verification" },
         { metric: "Market entry speed", improvement: "6 months → 2.5 months (-58%)" }
       ]
-    },
-    {
-      company: "Hyro.ai",
-      title: "Healthcare AI Content Strategy",
-      objectives: [
-        { task: "Technical accuracy for CIOs", result: "97.8% validation" },
-        { task: "ROI messaging for CFOs", result: "$1M+ savings narratives" },
-        { task: "Clinical messaging for CMOs", result: "98.3% medical accuracy" },
-        { task: "Implementation content", result: "94% partner certification" }
-      ],
-      metrics: [
-        { metric: "Content production", improvement: "8/month → 34/month (+325%)" },
-        { metric: "Sales acceleration", improvement: "23% faster enterprise deals" },
-        { metric: "Message consistency", improvement: "73% → 96% across personas" }
-      ]
     }
   ],
 
