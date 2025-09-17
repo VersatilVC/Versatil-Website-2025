@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../contexts/ThemeContext";
-import { ArrowRight, Sparkles, Target, Zap, Settings, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { BrandedSparkles, DNAIcon, WorkflowIcon, AnalyticsIcon } from "./BrandedIcons";
 
 const ComprehensiveHero = () => {
   const { theme } = useTheme();
