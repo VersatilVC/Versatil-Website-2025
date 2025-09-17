@@ -142,7 +142,7 @@ const ShoreditchHero = () => {
           >
             VERSATIL
             <br />
-            <span className="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
               KILLS SLOW
             </span>
           </motion.h1>
