@@ -21,7 +21,7 @@ const menuDescriptions = {
   "Graph Neural Networks": "Advanced AI that maps relationships between your company elements to ensure consistent brand messaging across all content.",
   "Performance Analytics": "Real-time insights and metrics that track content performance and optimize your marketing ROI continuously.",
   "Brand Consistency AI": "Intelligent system that maintains your brand voice and messaging consistency across all marketing channels and content types.",
-  "About VERSATIL": "Learn about our mission to transform company DNA into powerful marketing content using cutting-edge AI technology.",
+  "About VERSATIL": "VERSATIL is a smart content platform that helps marketing and sales teams churn out awesome, on-brand content super fast, and at scale. It does this with a personalized AI brain and specialized agents, plus human in the loop to make sure everything's just right. Let's discuss how it helps you move faster, smarter, and earlier in this new era of Human augmentation. #RAG #Graph #ContextualGTM #AIOrchestration",
   "Success Cases": "Discover how leading companies achieved 3x content velocity and 98% brand consistency with VERSATIL's AI platform.",
   "DNA Technology": "Deep dive into our proprietary Company DNA extraction and content generation technology stack.",
   "Contact": "Get in touch with our team for a personalized demo or to discuss your content marketing challenges.",
