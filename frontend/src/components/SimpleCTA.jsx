@@ -7,6 +7,7 @@ import { useCalendarModal } from "../hooks/useCalendarModal";
 
 const SimpleCTA = () => {
   const { theme } = useTheme();
+  const { isOpen, openCalendar, closeCalendar } = useCalendarModal();
 
   return (
     <section className="py-20 relative overflow-hidden">
