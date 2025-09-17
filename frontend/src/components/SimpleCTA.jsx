@@ -63,6 +63,7 @@ const SimpleCTA = () => {
             transition={{ delay: 0.6 }}
           >
             <motion.button
+              onClick={openVideo}
               className={`px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${
                 theme === 'dark'
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white'
