@@ -93,10 +93,15 @@ const Header = () => {
             <button className="text-muted-foreground hover:text-foreground transition-colors">
               Log In
             </button>
-            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 relative overflow-hidden group">
+            <a 
+              href="https://app.versatil.vc/auth"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 relative overflow-hidden group rounded-md inline-flex items-center justify-center font-medium transition-colors"
+            >
               <span className="relative z-10">Start Free Trial</span>
               <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Button>
+            </a>
             
             {/* Theme Toggle */}
             <button
