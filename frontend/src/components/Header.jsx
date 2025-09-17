@@ -34,19 +34,12 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/cases" 
-              className={`transition-colors relative group ${
-                isActive('/cases') 
-                  ? 'text-purple-600 font-medium' 
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
+            <a 
+              href="#cases"
+              className={`transition-colors relative group text-muted-foreground hover:text-foreground`}
             >
               Success Stories
-              {isActive('/cases') && (
-                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
-              )}
-            </Link>
+            </a>
             <Link 
               to="/shop" 
               className={`transition-colors relative group ${
