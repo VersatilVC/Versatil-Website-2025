@@ -154,53 +154,7 @@ const Footer = () => {
               {versatilData.company.description}
             </motion.p>
 
-            {/* Technology Stack */}
-            <motion.div
-              className="mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              <h4 className={`text-sm font-semibold uppercase tracking-wider mb-4 ${
-                theme === 'dark' ? 'text-gray-500' : 'text-gray-400'
-              }`}>
-                Powered By
-              </h4>
-              <div className="flex flex-wrap gap-3">
-                {[
-                  { icon: DNAIcon, label: "Company DNA AI", color: "purple" },
-                  { icon: RAGIcon, label: "RAG Technology", color: "blue" },
-                  { icon: GraphIcon, label: "Graph Neural Networks", color: "green" },
-                ].map((tech, index) => {
-                  const IconComponent = tech.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      className={`flex items-center space-x-2 px-3 py-2 rounded-lg border ${
-                        theme === 'dark' 
-                          ? `border-${tech.color}-500/30 bg-${tech.color}-500/10 hover:bg-${tech.color}-500/20` 
-                          : `border-${tech.color}-200 bg-${tech.color}-50 hover:bg-${tech.color}-100`
-                      } transition-all duration-300 cursor-pointer`}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      animate={{ 
-                        y: [0, -2, 0],
-                      }}
-                      transition={{ 
-                        duration: 3, 
-                        repeat: Infinity,
-                        delay: index * 0.5
-                      }}
-                    >
-                      <IconComponent className={`w-4 h-4 text-${tech.color}-500`} color="currentColor" />
-                      <span className={`text-sm font-medium text-${tech.color}-500`}>
-                        {tech.label}
-                      </span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
+            {/* Technology Stack section removed per user request */}
 
             {/* Social Links */}
             <motion.div
